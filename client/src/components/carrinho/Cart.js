@@ -1,0 +1,71 @@
+ import Button from '@restart/ui/esm/Button';
+ import React from 'react';
+import { useHistory} from 'react-router-dom';
+ import { finalizarCompra } from '../../redux/actions/cartAction.js';
+ import { useDispatch,connect } from 'react-redux';
+ import "./cart.css";
+
+const Cart = ({ isLogged, cartItems,user,compra,compraSuccess}) => {
+   const dispatch = useDispatch();
+    const history = useHistory();
+
+    const somaCart = cartItems.reduce((total, res)=>
+    total + res.qty * res.price ,0);
+
+    const novaCompra = {
+       cartItem:cartItems,
+       somaCart:somaCart,
+       user:user
+    }
+
+    const handleFinalizarCompra = () => {
+    dispatch(finalizarCompra(novaCompra));
+  }
+    return(
+    <div className="cart-container">
+     <h2>Carrinho</h2>
+       {compraSuccess ?<FinalCompra user={user}compra={compra}/>: 
+        cartItems.map((item, index)=>(
+         <CartItem key={index} item={item} somaCart={somaCart}/>     
+         ))}    
+      <p>{somaCart}  </p>
+    <Button class="button button1" onClick={()=>handleFinalizarCompra()}>Comprar</Button>
+   </div>
+  )
+}
+
+export const CartItem = ({item, somaCart}) => {
+  return (
+    <div>
+      <div className="cart-item" >
+        <p style={{fontWeight: "bold"}}>
+        {item.name}&nbsp;&nbsp;{item.price}</p>
+     </div>
+   </div>
+ )
+}
+
+export const FinalCompra = ({compra}) => {
+ 
+  return (
+    <div>
+      <div className="cart-final" >
+       <h3>  {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.total}</h3>
+       <h5>Código da compra </h5>
+       <h4>{compra.orderId}</h4>
+     </div>
+   </div>
+ )
+}
+
+const mapStateToProps = (state) => {
+return{
+     cartItems:  state.cartReducer.cartProducts,
+     compraSuccess: state.cartReducer.success,
+     user: state.userReducer.user,
+     isLogged: state.userReducer.islogged,
+     compra : state.cartReducer.compra
+  }
+}
+
+ export default connect (mapStateToProps)(Cart);

@@ -1,0 +1,16 @@
+
+  export const SELECTED_PRODUCT ="SELECTED_PRODUCT";
+  export const SET_PRODUCT_LIST = "SET_PRODUCT_LIST";
+  export const ADD_CART  ="ADD_CART";
+  export const SET_CART= "SET_CART";
+  export const CART_REQUEST = "CART_REQUEST";
+  export const SELECTED_CART= "SELECTED_CART";
+  export const CREATE_USER_SUCCESS= "CREATE_USER_SUCCESS";
+  export const CREATE_USER_ERROR= "CREATE_USER_ERROR";
+  export const LOGIN_USER_SUCCESS= "LOGIN_USER_SUCCESS";
+  export const LOGIN_USER_ERROR= "LOGIN_USER_ERROR";
+  export const COUNTER_ADD = "COUNTER_ADD";
+  export const PURCHASE_SUCCESS = "PURCHASE_SUCCESS";
+  export const SET_SHOW_CART = "SET_SHOW_CART";
+
+
