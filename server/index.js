@@ -19,7 +19,7 @@ app.use(express.json());
 require('dotenv').config();
 
 
-mongoose.connect("",{
+mongoose.connect("mongodb+srv://LucasBanco:12065722@cluster0.kljry.mongodb.net/shoppingcart-project?retryWrites=true&w=majority",{
     useNewUrlParser:true,
     useUnifiedTopology: true
 })
@@ -28,7 +28,6 @@ mongoose.connect("",{
 
 
 app.listen(port,()=> {console.log("8080 connectado")});
-
 
 
 

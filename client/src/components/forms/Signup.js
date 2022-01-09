@@ -1,25 +1,29 @@
-import React,{useState} from 'react';
-import {Link} from 'react-router-dom';
+import React,{useState,useEffect} from 'react';
+import {Link,useHistory} from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
 import { createUser } from '../../redux/actions/userAction';
 import Header from '../header/Header';
 import AlertForm from "./AlertForm";
 import "./form.css";
 
-const Signup= ({error,isLogged})=> {
+const Signup= ({user,error,isLogged})=> {
 
 const [name, setName] = useState("");
 const [email, setEmail] = useState("");
 const [password, setPassword] = useState("");
 
 const dispatch = useDispatch();
-
+const history = useHistory();
   const userInfo ={
     name: name,
     email: email,
     password: password
   }
   
+  useEffect(()=> {
+   history.push("/")
+   } ,[user] ) 
+   
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUser(userInfo));
@@ -32,6 +36,7 @@ const dispatch = useDispatch();
   <Header /> 
     <form className="form" onSubmit={handleSubmit}>
     { !error ? null : <AlertForm error={error} /> }
+     {user ? <h4>{user.name} {user.message}</h4>:null }
     <h1>Cadastre-se Já!</h1>
     <label>Nome</label>
     <input type="text" value={name} placeholder="nome do usuario" onChange={e => setName(e.target.value)} /> 
@@ -49,6 +54,7 @@ const dispatch = useDispatch();
   const mapStateToProps = (state)=>{
     return{
     error : state.errorReducer.message,
+    user: state.userReducer.user  
   }
 }
     

@@ -5,7 +5,7 @@ import Header from '../header/Header';
 import AlertForm from './AlertForm';
 import "./form.css";
 
-const Login = ({isLogged,error})=> {
+const Login = ({user,isLogged,error})=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -27,6 +27,9 @@ const handleSubmit = (event) => {
     <form className="form" onSubmit={handleSubmit}>
 
      {!error ? null: <AlertForm error={error} />}
+     {user ? <h4>{user.name} {user.message}</h4>:null }
+     
+      {console.log("sou user login fomr",user)}
       <h2>entre Já</h2>
       <label>Email</label>
       <input type="text" value={email} placeholder="Email do usuario" onChange={e => setEmail(e.target.value)} /> 
@@ -41,7 +44,8 @@ const handleSubmit = (event) => {
 const mapStateToProps = (state)=>{
   return{
   error : state.errorReducer.message,
- }
+  user: state.userReducer.user,
+}
 }
 
 export default connect(mapStateToProps)(Login);
