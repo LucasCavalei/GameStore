@@ -20,10 +20,7 @@ const history = useHistory();
     password: password
   }
   
-  useEffect(()=> {
-   history.push("/")
-   } ,[user] ) 
-   
+
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(createUser(userInfo));
