@@ -4,7 +4,7 @@ import Home from './components/Home';
 import Signup from './components/forms/Signup';
 import Login from './components/forms/Login';
 import { Switch,  BrowserRouter as Router ,Route } from 'react-router-dom';
-import Footer from './images/footer.';
+import Footer from './components/footer/footer.';
 
 
 function App() {
