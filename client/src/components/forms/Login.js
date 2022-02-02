@@ -5,6 +5,7 @@ import Header from '../header/Header';
 import AlertForm from './AlertForm';
 import "./form.css";
 
+
 const Login = ({user,isLogged,error})=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +38,7 @@ const handleSubmit = (event) => {
       <input type="text" value={password} placeholder="Senha" onChange={e => setPassword(e.target.value)} />         
       <button class="button button1" type="submit">Entrar</button>
    </form>
+ 
  </ >
  )
 

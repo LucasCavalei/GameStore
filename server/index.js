@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const port = 8080;
 const morgan = require("morgan");
+require("dotenv").config();
 
 const userRoute = require("./routes/userRoute");
 const orderRoute = require("./routes/orderRoute");
@@ -16,15 +17,13 @@ app.use(morgan("tiny"));
 app.use(cors());
 
 app.use(express.json());
-require('dotenv').config();
 
 
-mongoose.connect(""),{
+mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
-    useUnifiedTopology: true
-})
-.then(() => console.log("database conectado"))
-.catch((err) => console.log("database fail", err));
+    useUnifiedTopology: true})
+.then( console.log("database conectado"))
+.catch((err) => console.log("falha ao conectar", err));
 
 
 app.listen(port,()=> {console.log("8000 connectado")});

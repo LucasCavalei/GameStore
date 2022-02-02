@@ -40,7 +40,7 @@ input[type=text],input[type=email], select {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: orange;
+  background-color: #1a254b;
   width: 400px;
   height: 50px;
 }
