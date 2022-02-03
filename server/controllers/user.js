@@ -28,6 +28,7 @@ const {createToken} =require('../isAuth.js');
      }
     }catch(error) {
     res.status(400).json({error, message: 'erro ao criar usuario'})
+    console.log(error)
    }
  }
 
@@ -54,7 +55,6 @@ const {createToken} =require('../isAuth.js');
                 _id: user._id,
                 name: user.name,
                 email: user.email,
-                // isAdmin: user.isAdmin,
                 token:token,
                 message:"Logado  com sucesso"
               });  

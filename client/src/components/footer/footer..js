@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Facebook from "../../assets/icons/Facebook.js";
 import Instagram from "../../assets/icons/Instagram.js";
 import Twitter from "../../assets/icons/Twitter.js";
@@ -13,15 +14,24 @@ const Footer = () => {
       style={{ position: "relative", top: "0px", marginBottom: "0px" }}
     >
       <div className="Footer-description">
-        <h2> Quem somos</h2>
-        <h2>contato</h2>
-        <h2>whatever</h2>
+        <Link to="/issue">
+          <h2> Quem somos</h2>
+        </Link>
+        <Link to="/issue">
+          <h2>contato</h2>
+        </Link>
+        <Link to="/issue">
+          <h2>whatever</h2>
+        </Link>
       </div>
       <div className="footer-socialMedia">
-        <Instagram />
-        <Twitter />
-        <Facebook />
-        <Youtube />
+        <Link to="/issue">
+          <Instagram />
+
+          <Twitter />
+          <Facebook />
+          <Youtube />
+        </Link>
       </div>
       <div
         className="copyRight"

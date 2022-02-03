@@ -21,9 +21,9 @@ app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI,{
     useNewUrlParser:true,
-    useUnifiedTopology: true})
+    useUnifiedTopology: true,})
 .then( console.log("database conectado"))
-.catch((err) => console.log("falha ao conectar", err));
+.catch((err) => console.log("falha ao conectar databse", err));
 
 
 app.listen(port,()=> {console.log("8000 connectado")});

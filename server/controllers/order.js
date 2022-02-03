@@ -1,6 +1,8 @@
 const Cart = require("../models/cart");
 const order = require("../models/order");
 const Order = require("../models/order");
+
+
 module.exports.get_order = async(req, res) =>{
 res.send("Im at Order Controller");
     //   try{
@@ -18,7 +20,7 @@ module.exports.post_order = async( req,res) => {
           const newOrder = await new Order({ 
               orderProducts,somaCart,user
             }); 
-            try{
+            try{''
                 newOrder. save((err, order) => {
                   if(err){
                     res.status(400).json({message: "Erro ao salvar pedido",err});
