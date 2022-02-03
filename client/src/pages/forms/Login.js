@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { loginUser } from "../../redux/actions/userAction";
-import Header from "../header/Header";
 import AlertForm from "./AlertForm";
 import "./form.css";
 
@@ -23,7 +22,7 @@ const Login = ({ user, isLogged, error }) => {
   };
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <form className="login-form" onSubmit={handleSubmit}>
         {!error ? null : <AlertForm error={error} />}
         {user ? (

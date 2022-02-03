@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
 import { createUser } from "../../redux/actions/userAction";
-import Header from "../header/Header";
 import FormMessage from "./AlertForm";
 import "./form.css";
 
@@ -28,7 +27,6 @@ const Signup = ({ user, error, isLogged }) => {
   };
   return (
     <>
-      <Header />
       <form className="signup-form" onSubmit={handleSubmit}>
         {!error ? null : <FormMessage error={error} user={user} />}
         {user ? (

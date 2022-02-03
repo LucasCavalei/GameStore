@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Lottie from "react-lottie";
+// import workingman from ".../../assets/lotties/working-man.json";
 import workingman from "../../assets/lotties/working-man.json";
-// import workingman from ".../assets/lotties/working-man.json";
 
 const defaultOptions = {
   loop: true,
@@ -14,7 +14,7 @@ const defaultOptions = {
 const LottieIssue = () => {
   const scrollToTop = () => {
     window.scrollTo({
-      top: 0,
+      top: 350,
       behavior: "smooth",
     });
   };
