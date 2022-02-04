@@ -8,7 +8,7 @@ import Cart from "../carrinho/Cart";
 import "./sidenav.css";
 import { SET_SHOW_CART } from "../../redux/actions/actionTypes";
 
-const Sidenav = ({ showCart, user }) => {
+const Sidenav = ({ showCart, isLogged, user }) => {
   const dispatch = useDispatch();
 
   const showSidebar = () => {
@@ -24,7 +24,7 @@ const Sidenav = ({ showCart, user }) => {
         <Link to="#" className="sidenav-contents">
           <FaShoppingCart size={40} onClick={showSidebar} />
         </Link>
-        {!user.isLogged ? (
+        {!isLogged ? (
           <Link to={{ pathname: "/signup" }}>
             <GrUserNew size={40} />
           </Link>
@@ -40,6 +40,7 @@ const mapStateToProps = (state) => {
   return {
     showCart: state.cartReducer.showCart,
     user: state.userReducer.user,
+    isLogged: state.userReducer.isLogged,
   };
 };
 export default connect(mapStateToProps)(Sidenav);
