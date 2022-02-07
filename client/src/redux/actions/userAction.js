@@ -1,10 +1,11 @@
 import { useHistory, Redirect } from "react-router-dom";
-import history from "../../history.js";
+
 import {
   CREATE_USER_SUCCESS,
   CREATE_USER_ERROR,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
+  LOG_OUT_USER,
 } from "./actionTypes.js";
 
 const axios = require("axios");
@@ -53,4 +54,7 @@ export const loginUser = (userInfo) => (dispatch) => {
         payload: error.response && error.response.data.message,
       });
     });
+};
+export const LogOut = () => (dispatch) => {
+  dispatch({ type: LOG_OUT_USER });
 };

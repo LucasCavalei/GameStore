@@ -2,6 +2,7 @@ import {
   CREATE_USER_SUCCESS,
   CREATE_USER_ERROR,
   LOGIN_USER_SUCCESS,
+  LOG_OUT_USER,
 } from "../actions/actionTypes";
 
 console.log("object");
@@ -20,9 +21,15 @@ export const userReducer = (state = initialState, action) => {
         user: action.payload,
         isLogged: true,
       };
-    case CREATE_USER_ERROR:
+    case "CREATE_USER_ERROR":
       return { ...state, error: action.payload, isLogged: true };
     default:
       return state;
+    case "LOG_OUT_USER":
+      return {
+        ...state,
+        user: {},
+        isLogged: false,
+      };
   }
 };

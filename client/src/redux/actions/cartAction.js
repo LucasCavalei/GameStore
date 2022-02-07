@@ -1,5 +1,5 @@
 import axios from "axios";
-import { PURCHASE_SUCCESS, SET_CART } from "./actionTypes.js";
+import { PURCHASE_SUCCESS, SET_CART, SET_SHOW_CART } from "./actionTypes.js";
 
 export const finalizarCompra =
   ({ cartItem, somaCart, user }) =>
@@ -17,6 +17,7 @@ export const finalizarCompra =
       somaCart,
       user: id,
     };
+
     axios
       .post("/order", orderData, {
         headers: {
