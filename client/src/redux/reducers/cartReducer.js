@@ -1,8 +1,8 @@
 import {
-  SET_CART,
   CART_REQUEST,
   PURCHASE_SUCCESS,
   SET_SHOW_CART,
+  ADD_TO_CART,
 } from "../actions/actionTypes.js";
 
 const initState = {
@@ -14,7 +14,7 @@ const initState = {
 
 export const cartReducer = (state = initState, action) => {
   switch (action.type) {
-    case SET_CART:
+    case ADD_TO_CART:
       const product = action.payload;
       const existItem = state.cartProducts.find((x) => x.id === product.id);
       if (existItem) {

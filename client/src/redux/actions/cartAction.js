@@ -1,5 +1,10 @@
 import axios from "axios";
-import { PURCHASE_SUCCESS, SET_CART, SET_SHOW_CART } from "./actionTypes.js";
+import {
+  PURCHASE_SUCCESS,
+  SET_CART,
+  ADD_TO_CART,
+  SET_SHOW_CART,
+} from "./actionTypes.js";
 
 export const finalizarCompra =
   ({ cartItem, somaCart, user }) =>
@@ -34,3 +39,6 @@ export const finalizarCompra =
         console.log(error);
       });
   };
+export const addToCart = (product) => (dispatch) => {
+  dispatch({ type: ADD_TO_CART, payload: product });
+};

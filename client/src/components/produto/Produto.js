@@ -1,16 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { SET_CART, SET_SHOW_CART } from "../../redux/actions/actionTypes";
+import { addToCart } from "../../redux/actions/cartAction";
+import { ADD_TO_CART, SET_SHOW_CART } from "../../redux/actions/actionTypes";
 
 function Produto({ product, showCart }) {
   const dispatch = useDispatch();
-  const myfunc = (product) => {
-    dispatch({ type: SET_CART, payload: product });
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+    // const myfunc = (product) => {
+    //   dispatch({ type: ADD_TO_CART, payload: product });
     {
       !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
     }
   };
+
   return (
     <div className="produto-item">
       <img
@@ -23,7 +28,9 @@ function Produto({ product, showCart }) {
       <div className="produto-desc">
         <h2>{product.name}</h2>
         <h4>${product.price}</h4>
-        <button onClick={() => myfunc(product)}>Adicionar ao carrinho</button>
+        <button onClick={() => handleAddToCart(product)}>
+          Adicionar ao carrinho
+        </button>
       </div>
     </div>
   );
