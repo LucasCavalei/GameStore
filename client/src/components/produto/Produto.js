@@ -9,8 +9,6 @@ function Produto({ product, showCart }) {
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product));
-    // const myfunc = (product) => {
-    //   dispatch({ type: ADD_TO_CART, payload: product });
     {
       !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
     }
@@ -38,7 +36,6 @@ function Produto({ product, showCart }) {
 
 const mapStateToProps = (state) => {
   return {
-    islogged: state.userReducer.islogged,
     showCart: state.cartReducer.showCart,
     user: state.userReducer.user,
   };

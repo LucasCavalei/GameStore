@@ -7,11 +7,15 @@ import FormMessage from "./AlertForm";
 import Lottie from "react-lottie";
 import "./form.css";
 
-const Signup = ({ user, isLogged, error }) => {
+const Signup = (isLogged, user, error) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showLottie, setShowLottie] = useState(undefined);
+
+  const [animationState, setAnimationState] = useState({
+    isStopped: true,
+    isPaused: false,
+  });
 
   const defaultOptions = {
     loop: false,
@@ -24,40 +28,64 @@ const Signup = ({ user, isLogged, error }) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
-  const userInfo = {
-    name: name,
-    email: email,
-    password: password,
-  };
 
-  const lottiePush = (user) => {
-    setShowLottie(false);
-    setShowLottie(true);
+  const handlePush = (user) => {
+    //   // {animationState || animationState.lenght < 0 && setAnimationState.isStopped: false;
+    //   console.log("sou type of is logged", typeof isLogged);
+    //   {
+    //     setAnimationState({ ...animationState, isStopped: false });
+    //   }
+
     setTimeout(() => {
-      console.log("aquela funcao pra ver o user", user);
-
-      // {
-      //   isLogged ? history.push("/") : history.push("/login");
-      // }
-      // setShowLottie(false);
+      // --------------------------------------
+      if (!isLogged) {
+        history.push("/");
+      }
     }, 2000);
   };
 
-  const handleSubmit = (event, user) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(createUser(userInfo));
-    lottiePush(user);
+    const userInfo = {
+      name: name,
+      email: email,
+      password: password,
+    };
+    dispatch(createUser({ userInfo }));
+    handlePush();
     setName("");
     setEmail("");
     setPassword("");
   };
+  // {
+  //   isLogged ? handlePush() : history.push("/signup");
+  // }
+
   return (
     <>
-      <Lottie options={defaultOptions} height={200} width={200} />
+      <Lottie
+        options={defaultOptions}
+        height={200}
+        width={200}
+        isStopped={animationState.isStopped}
+        isPaused={animationState.isPaused}
+      />
       <form className="signup-form" onSubmit={handleSubmit}>
-        {!error ? null : <FormMessage error={error} user={user} />}
+        {/* <button onClick={() => setAnimationState({ isStopped: true })}>
+                        stop
+                      </button>
+                      <button onClick={() => setAnimationState({ isStopped: false })}>
+                        play
+                      </button> */}
+        {/* <button
+          onClick={() =>
+            this.setAnimationState({ isPaused: !this.state.isPaused })
+          }
+        >
+          pause
+        </button> */}
+        {/* {!error ? null : <FormMessage error={error} user={user} />} */}
         <h1>Cadastre-se Já!</h1>
-        {isLogged ? history.push("/") : null}
         <label>Nome</label>
         <input
           type="text"
@@ -95,8 +123,8 @@ const mapStateToProps = (state) => {
   console.log("sou mapState", state);
   return {
     error: state.errorReducer.message,
-    user: state.userReducer,
     isLogged: state.userReducer.isLogged,
+    user: state.userReducer.user,
   };
 };
 

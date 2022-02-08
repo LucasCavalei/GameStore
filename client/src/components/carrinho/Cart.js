@@ -1,13 +1,11 @@
 import Button from "@restart/ui/esm/Button";
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { finalizarCompra } from "../../redux/actions/cartAction.js";
 import { useDispatch, connect } from "react-redux";
 import "./cart.css";
 
-const Cart = ({ isLogged, cartItems, user, compra, compraSuccess }) => {
+const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const somaCart = cartItems.reduce(
     (total, res) => total + res.qty * res.price,
@@ -69,7 +67,6 @@ const mapStateToProps = (state) => {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,
     user: state.userReducer.user,
-    isLogged: state.userReducer.islogged,
     compra: state.cartReducer.compra,
   };
 };
