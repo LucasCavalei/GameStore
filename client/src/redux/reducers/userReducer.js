@@ -8,7 +8,7 @@ import {
 console.log("object");
 const initialState = {
   user: {},
-  isLogged: null,
+  isLogged: false,
   error: {},
 };
 
@@ -30,6 +30,7 @@ export const userReducer = (state = initialState, action) => {
         user: {},
         isLogged: false,
       };
+
     default:
       return state;
   }
