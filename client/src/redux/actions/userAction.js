@@ -6,6 +6,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
   LOG_OUT_USER,
+  LOADING_USER,
 } from "./actionTypes.js";
 
 const axios = require("axios");
@@ -13,6 +14,7 @@ const axios = require("axios");
 export const createUser =
   ({ userInfo }) =>
   (dispatch) => {
+    dispatch({ type: LOADING_USER });
     axios
       .post("/user/signup", userInfo)
       .then((response) => {
@@ -34,6 +36,7 @@ export const createUser =
   };
 
 export const loginUser = (userInfo) => (dispatch) => {
+  dispatch({ type: LOADING_USER });
   axios
     .post("/user/login", userInfo)
     .then((response) => {

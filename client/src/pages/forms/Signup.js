@@ -10,7 +10,7 @@ import FormMessage from "./AlertForm";
 import Lottie from "react-lottie";
 import "./form.css";
 
-const Signup = ({ isLogged, user, error }) => {
+const Signup = ({ isLogged, loading, user, error }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,21 +49,7 @@ const Signup = ({ isLogged, user, error }) => {
       ...logSuccessAnimation,
       isStopped: !logSuccessAnimation.isStopped,
     });
-    setTimeout(() => {
-      history.push("/login");
-    }, 200);
   };
-  // {isLogged ?  : null}
-  //   // {animationState || animationState.lenght < 0 && setAnimationState.isStopped: false;
-  //   console.log("sou type of is logged", typeof isLogged);
-  //   {
-  //   }
-  // setLogSuccessAnimation({ ...logSuccessAnimation, isStopped: false });
-  // setTimeout(() => {
-  //   // setLogSuccessAnimation({ ...logSuccessAnimation, isStopped: true });
-  //   // setShowLottie(false);
-  // }, 2000);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     const userInfo = {
@@ -104,8 +90,19 @@ const Signup = ({ isLogged, user, error }) => {
         isStopped={logSuccessAnimation.isStopped}
         isPaused={logSuccessAnimation.isPaused}
       />
+      {/* <h3
+        onClick={() =>
+          setLogSuccessAnimation({
+            ...logSuccessAnimation,
+            isStopped: !logSuccessAnimation.isStopped,
+          })
+        }
+      >
+        click me
+      </h3> */}
       {isLogged ? myfunction() : null}
       <form className="signup-form" onSubmit={handleSubmit}>
+        {console.log(name)}
         <h1>Cadastre-se Já!</h1>
         <label>Nome</label>
         <input
@@ -150,6 +147,7 @@ const mapStateToProps = (state) => {
     error: state.errorReducer.message,
     isLogged: state.userReducer.isLogged,
     user: state.userReducer.user,
+    loading: state.userReducer.loadingUser,
   };
 };
 
