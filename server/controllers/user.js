@@ -5,6 +5,7 @@ const { createToken } = require("../isAuth.js");
 
 module.exports.signup = async (req, res) => {
   const { name, email, password } = req.body;
+
   try {
     if (!email || !password) {
       res

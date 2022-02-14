@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { useForm } from "react-hook-form";
+
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
 import { createUser } from "../../redux/actions/userAction";
@@ -11,11 +13,10 @@ import Lottie from "react-lottie";
 import "./form.css";
 
 const Signup = ({ isLogged, loading, user, error }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [booleano, setBooleano] = useState(true);
   const [showLottie, setShowLottie] = useState(false);
+  const { register, handleSubmit, errors } = useForm();
+
   const [logSuccessAnimation, setLogSuccessAnimation] = useState({
     isStopped: true,
     isPaused: false,
@@ -50,22 +51,25 @@ const Signup = ({ isLogged, loading, user, error }) => {
       isStopped: !logSuccessAnimation.isStopped,
     });
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const userInfo = {
+  //     name: name,
+  //     email: email,
+  //     password: password,
+  //   };
+  //   dispatch(createUser({ userInfo }));
+  // };
+  const onSubmit = (e) => {
     const userInfo = {
-      name: name,
-      email: email,
-      password: password,
+      name: e.name,
+      email: e.email,
+      password: e.password,
     };
     dispatch(createUser({ userInfo }));
-    setName("");
-    setEmail("");
-    setPassword("");
-  };
 
-  // {
-  //   isLogged ? handlePush() : history.push("/signup");
-  // }
+    console.log(e);
+  };
 
   return (
     <>
@@ -90,43 +94,18 @@ const Signup = ({ isLogged, loading, user, error }) => {
         isStopped={logSuccessAnimation.isStopped}
         isPaused={logSuccessAnimation.isPaused}
       />
-      {/* <h3
-        onClick={() =>
-          setLogSuccessAnimation({
-            ...logSuccessAnimation,
-            isStopped: !logSuccessAnimation.isStopped,
-          })
-        }
-      >
-        click me
-      </h3> */}
-      {isLogged ? myfunction() : null}
-      <form className="signup-form" onSubmit={handleSubmit}>
-        {console.log(name)}
+
+      {/* {isLogged ? myfunction() : null} */}
+      <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
-        <label>Nome</label>
-        <input
-          type="text"
-          value={name}
-          placeholder="nome do usuario"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <label>Email</label>
-        <input
-          type="email"
-          value={email}
-          placeholder="Email do usuario"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <label>senha</label>
-        <input
-          type="text"
-          value={password}
-          placeholder="Senha"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+        <label>Nome: </label>
+        <input type="text" {...register("name")} />
+        <label> Email </label>
+        <input type="text" {...register("email")} />
+        <label> Senha </label>
+        <input type="text" {...register("password")} />
         <button class="button button1" type="submit">
-          Cadastrar
+          Enviar
         </button>
         <h5>
           já é nosso cliente ? <Link to="/login"> click login</Link>

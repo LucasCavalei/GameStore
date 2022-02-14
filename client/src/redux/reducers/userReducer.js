@@ -15,7 +15,6 @@ const initialState = {
 };
 
 export const userReducer = (state = initialState, action) => {
-  console.log(state, "sou state user reducer");
   switch (action.type) {
     case CREATE_USER_SUCCESS:
     case LOGIN_USER_SUCCESS:
