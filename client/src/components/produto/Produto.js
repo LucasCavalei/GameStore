@@ -7,10 +7,11 @@ function Produto({ product, showCart }) {
   const dispatch = useDispatch();
   const myfunc = (product) => {
     dispatch({ type: SET_CART, payload: product });
-    {
-      !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
-    }
+
+    // toggle de mostrar e esconder carrinho de compras {
+    !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
   };
+
   return (
     <div className="produto-item">
       <img
