@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const port = 8000;
+const port = 8888;
 const morgan = require("morgan");
 require("dotenv").config();
 
@@ -27,5 +27,5 @@ mongoose
   .catch((err) => console.log("falha ao conectar databse", err));
 
 app.listen(port, () => {
-  console.log("8000 connectado");
+  console.log("8888 port connectado");
 });
