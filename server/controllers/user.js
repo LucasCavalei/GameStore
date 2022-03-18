@@ -13,23 +13,25 @@ module.exports.signup = async (req, res) => {
   const userExists = await User.findOne({ email });
   if (userExists) {
     res.status(400).json({ message: "usuario já existe" });
-  } else {
-    const newUser = new User({
-      name: name,
-      email: email,
-      password: password,
-    });
-    bcrypt.genSalt((err, salt) => {
-      bcrypt.hash(newUser.password, salt, (err, hash) => {
-        if (err) throw err;
-        newUser.password = hash;
-        newUser
-          .save()
-          .then((user) => res.json(user))
-          .catch((err) => console.log(err));
-      });
-    });
   }
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
+
+  const newUser = new User({
+    name: name,
+    email: email,
+    password: hashedPassword,
+  });
+
+  await newUser.save((err, savedUser) => {
+    if (err) res.status(400).json({ message: "Usuario não pode ser salvo" });
+
+    res.status(200).json({
+      message: "Usuario salvo com sucesso",
+      id: savedUser._id,
+      token: createToken(savedUser._id),
+    });
+  });
 };
 
 module.exports.login = async (req, res) => {

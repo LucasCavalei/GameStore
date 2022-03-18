@@ -10,21 +10,16 @@ const Login = ({ user, isLogged, error }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setEmail("");
-  //   setPassword("");
-  // };
   const onSubmit = (e) => {
     const userInfo = {
       email: e.email,
       password: e.password,
     };
-    dispatch(loginUser(e));
+    dispatch(loginUser(userInfo));
     console.log(e);
   };
 
@@ -40,7 +35,7 @@ const Login = ({ user, isLogged, error }) => {
           </h4>
         ) : null}
 
-        <h1>Cadastre-se Já!</h1>
+        <h1>Faça seu login</h1>
         <label>Nome: </label>
         <input type="text" {...register("name")} />
         <label> Email </label>

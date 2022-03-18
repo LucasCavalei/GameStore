@@ -13,7 +13,6 @@ import Lottie from "react-lottie";
 import "./form.css";
 
 const Signup = ({ isLogged, loading, user, error }) => {
-  const [booleano, setBooleano] = useState(true);
   const [showLottie, setShowLottie] = useState(false);
   const { register, handleSubmit, errors } = useForm();
 
@@ -51,15 +50,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
       isStopped: !logSuccessAnimation.isStopped,
     });
   };
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const userInfo = {
-  //     name: name,
-  //     email: email,
-  //     password: password,
-  //   };
-  //   dispatch(createUser({ userInfo }));
-  // };
+
   const onSubmit = (e) => {
     const userInfo = {
       name: e.name,
@@ -67,19 +58,17 @@ const Signup = ({ isLogged, loading, user, error }) => {
       password: e.password,
     };
     dispatch(createUser({ userInfo }));
-
-    console.log(e);
   };
 
   return (
     <>
       {/* <Lottie
-        options={loadingOptions}
-        height={200}
-        width={200}
-        isStopped={loadingAnimation.isStopped}
-        isPaused={loadingAnimation.isPaused}
-      /> */}
+          options={loadingOptions}
+          height={200}
+          width={200}
+          isStopped={loadingAnimation.isStopped}
+          isPaused={loadingAnimation.isPaused} 
+        /> */}
 
       <Lottie
         style={{
@@ -120,7 +109,6 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  // acompanha o estadoatual do redux
   console.log("sou mapState", state);
   return {
     error: state.errorReducer.message,

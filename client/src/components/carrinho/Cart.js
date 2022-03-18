@@ -1,4 +1,3 @@
-import Button from "@restart/ui/esm/Button";
 import React from "react";
 import { finalizarCompra } from "../../redux/actions/cartAction.js";
 import { useDispatch, connect } from "react-redux";
@@ -31,9 +30,10 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
         ))
       )}
       <h4>{somaCart} </h4>
-      <Button class="button button1" onClick={() => handleFinalizarCompra()}>
-        Comprar
-      </Button>
+      <button
+        class="button button1"
+        onClick={() => handleFinalizarCompra()}
+      ></button>
     </div>
   );
 };

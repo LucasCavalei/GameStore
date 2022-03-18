@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const port = 8888;
+const port = 8080;
 const morgan = require("morgan");
 require("dotenv").config();
 

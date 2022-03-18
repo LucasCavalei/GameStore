@@ -10,3 +10,4 @@ export const LOADING_USER = "LOADING_USER";
 export const PURCHASE_SUCCESS = "PURCHASE_SUCCESS";
 export const SET_SHOW_CART = "SET_SHOW_CART";
 export const LOG_OUT_USER = "LOG_OUT_USER";
+export const SET_CART = "SET_CART";
