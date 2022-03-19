@@ -20,7 +20,6 @@ const Login = ({ user, isLogged, error }) => {
       password: e.password,
     };
     dispatch(loginUser(userInfo));
-    console.log(e);
   };
 
   return (
