@@ -37,7 +37,19 @@ module.exports.signup = async (req, res) => {
 module.exports.login = async (req, res) => {
   const { email, password } = req.body;
 
-  await User.findOne({ email })
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err));
+  const user = await User.findOne({ email });
+  if (!user) {
+    res.status(400).json({ message: "Usuario não existe" });
+  }
+  bcrypt.compare(password, user.password, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.status(200).json({
+        message: "Usuario logado com sucesso",
+        id: user._id,
+        token: createToken(user._id),
+      });
+    }
+  });
 };
