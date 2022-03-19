@@ -7,9 +7,6 @@ import AlertForm from "./AlertForm";
 import "./form.css";
 
 const Login = ({ user, isLogged, error }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
   const { register, handleSubmit } = useForm();
 
   const dispatch = useDispatch();

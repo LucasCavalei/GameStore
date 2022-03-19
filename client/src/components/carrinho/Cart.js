@@ -23,10 +23,14 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   return (
     <div className="cart-container">
       {compraSuccess ? (
-        <FinalCompra user={user} compra={compra} />
+        <CompraEncerrada user={user} compra={compra} />
       ) : (
         cartItems.map((item, index) => (
-          <CartItem key={index} item={item} somaCart={somaCart} />
+          <div className="cart-item">
+            <p style={{ fontWeight: "bold", color: "white" }}>
+              {item.name}&nbsp;&nbsp;{item.price}
+            </p>
+          </div>
         ))
       )}
       <h4>{somaCart} </h4>
@@ -38,19 +42,7 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   );
 };
 
-export const CartItem = ({ item, somaCart }) => {
-  return (
-    <div>
-      <div className="cart-item">
-        <p style={{ fontWeight: "bold", color: "white" }}>
-          {item.name}&nbsp;&nbsp;{item.price}
-        </p>
-      </div>
-    </div>
-  );
-};
-
-export const FinalCompra = ({ compra }) => {
+export const CompraEncerrada = ({ compra }) => {
   return (
     <div>
       <div className="cart-final">

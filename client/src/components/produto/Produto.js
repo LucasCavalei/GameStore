@@ -2,16 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/actions/cartAction";
-import {
-  ADD_TO_CART,
-  SET_SHOW_CART,
-  SET_CART,
-} from "../../redux/actions/actionTypes";
+import { ADD_TO_CART, SET_SHOW_CART } from "../../redux/actions/actionTypes";
 
 function Produto({ product, showCart }) {
   const dispatch = useDispatch();
   const handleAddToCart = (product) => {
-    dispatch({ type: SET_CART, payload: product });
+    dispatch({ type: ADD_TO_CART, payload: product });
 
     // toggle de mostrar e esconder carrinho de compras {
     !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
