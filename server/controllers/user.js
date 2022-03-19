@@ -23,8 +23,10 @@ module.exports.signup = async (req, res) => {
   });
 
   await newUser.save((err, savedUser) => {
-    if (err) res.status(400).json({ message: "Usuario não pode ser salvo" });
-
+    if (err) {
+      res.status(400).json({ message: "Usuario não pode ser salvo" });
+      console.log(err);
+    }
     res.status(200).json({
       message: "Usuario salvo com sucesso",
       id: savedUser._id,

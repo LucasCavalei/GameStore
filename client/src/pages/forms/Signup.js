@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
+import Lottie from "react-lottie";
 
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
@@ -9,7 +10,6 @@ import loading from "../../assets/lotties/loading.json";
 import logSuccess from "../../assets/lotties/unlock.json";
 
 import FormMessage from "./AlertForm";
-import Lottie from "react-lottie";
 import "./form.css";
 
 const Signup = ({ isLogged, loading, user, error }) => {
@@ -17,7 +17,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
   const { register, handleSubmit, errors } = useForm();
 
   const [logSuccessAnimation, setLogSuccessAnimation] = useState({
-    isStopped: true,
+    isStopped: false,
     isPaused: false,
   });
   const [loadingAnimation, setLaoadingAnimation] = useState({
@@ -33,9 +33,9 @@ const Signup = ({ isLogged, loading, user, error }) => {
       preserveAspectRatio: "xMidYMid slice",
     },
   };
-  const logOptions = {
+  const logUnlock = {
     loop: false,
-    autoplay: false,
+    autoplay: true,
     animationData: logSuccess,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
@@ -48,6 +48,8 @@ const Signup = ({ isLogged, loading, user, error }) => {
     setLogSuccessAnimation({
       ...logSuccessAnimation,
       isStopped: !logSuccessAnimation.isStopped,
+      // height: "100px",
+      // width: "100px",
     });
   };
 
@@ -69,22 +71,21 @@ const Signup = ({ isLogged, loading, user, error }) => {
           isStopped={loadingAnimation.isStopped}
           isPaused={loadingAnimation.isPaused} 
         /> */}
-
-      <Lottie
-        style={{
-          position: "absolute",
-          top: "75%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-        options={logOptions}
-        height={200}
-        width={200}
-        isStopped={logSuccessAnimation.isStopped}
-        isPaused={logSuccessAnimation.isPaused}
-      />
-
-      {/* {isLogged ? myfunction() : null} */}
+      {isLogged ? (
+        <Lottie
+          style={{
+            position: "absolute",
+            top: "75%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+          options={logUnlock}
+          height={200}
+          width={200}
+          isStopped={logSuccessAnimation.isStopped}
+          isPaused={logSuccessAnimation.isPaused}
+        />
+      ) : null}
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
         <label>Nome: </label>
