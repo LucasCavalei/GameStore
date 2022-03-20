@@ -12,7 +12,6 @@ function ListaProduto({ products }) {
     </div>
   );
 }
-
 const mapStateToProps = (state) => {
   return {
     products: state.productReducer.products,

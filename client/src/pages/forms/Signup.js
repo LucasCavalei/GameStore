@@ -8,8 +8,8 @@ import { useDispatch, connect } from "react-redux";
 import { createUser } from "../../redux/actions/userAction";
 import loading from "../../assets/lotties/loading.json";
 import logSuccess from "../../assets/lotties/unlock.json";
+import AlertForm from "./alerts/AlertForm";
 
-import FormMessage from "./AlertForm";
 import "./form.css";
 
 const Signup = ({ isLogged, loading, user, error }) => {
@@ -42,16 +42,6 @@ const Signup = ({ isLogged, loading, user, error }) => {
     },
   };
   const dispatch = useDispatch();
-  const history = useHistory();
-
-  const myfunction = () => {
-    setLogSuccessAnimation({
-      ...logSuccessAnimation,
-      isStopped: !logSuccessAnimation.isStopped,
-      // height: "100px",
-      // width: "100px",
-    });
-  };
 
   const onSubmit = (e) => {
     const userInfo = {
@@ -64,13 +54,6 @@ const Signup = ({ isLogged, loading, user, error }) => {
 
   return (
     <>
-      {/* <Lottie
-          options={loadingOptions}
-          height={200}
-          width={200}
-          isStopped={loadingAnimation.isStopped}
-          isPaused={loadingAnimation.isPaused} 
-        /> */}
       {isLogged ? (
         <Lottie
           style={{

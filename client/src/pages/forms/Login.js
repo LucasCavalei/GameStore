@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import { connect, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import Lottie from "react-lottie";
 import { useForm } from "react-hook-form";
 import { loginUser } from "../../redux/actions/userAction";
-import AlertForm from "./AlertForm";
+import logSuccess from "../../assets/lotties/unlock.json";
+import AlertForm from "./alerts/AlertForm";
 import "./form.css";
 
 const Login = ({ user, isLogged, error }) => {
   const { register, handleSubmit } = useForm();
-
+  const [logSuccessAnimation, setLogSuccessAnimation] = useState({
+    isStopped: false,
+    isPaused: false,
+  });
   const dispatch = useDispatch();
+  const logUnlock = {
+    loop: false,
+    autoplay: true,
+    animationData: logSuccess,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   const onSubmit = (e) => {
     const userInfo = {
@@ -22,6 +35,21 @@ const Login = ({ user, isLogged, error }) => {
   return (
     <>
       {/* <Header /> */}
+      {isLogged ? (
+        <Lottie
+          style={{
+            position: "absolute",
+            top: "75%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+          }}
+          options={logUnlock}
+          height={200}
+          width={200}
+          isStopped={logSuccessAnimation.isStopped}
+          isPaused={logSuccessAnimation.isPaused}
+        />
+      ) : null}
 
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         {!error ? null : <AlertForm error={error} />}
@@ -42,7 +70,7 @@ const Login = ({ user, isLogged, error }) => {
           Enviar
         </button>
         <h5>
-          já é nosso cliente ? <Link to="/login"> click login</Link>
+          Não é nosso cliente ? <Link to="/signup"> Cadastre-se Já</Link>
         </h5>
       </form>
     </>
@@ -52,6 +80,7 @@ const mapStateToProps = (state) => {
   return {
     error: state.errorReducer.message,
     user: state.userReducer.user,
+    isLogged: state.userReducer.isLogged,
   };
 };
 

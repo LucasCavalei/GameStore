@@ -42,13 +42,14 @@ module.exports.login = async (req, res) => {
   if (!user) {
     res.status(400).json({ message: "Usuario não existe" });
   }
-  bcrypt.compare(password, user.password, (err, result) => {
+  bcrypt.compare(password, user.password, (err, isMatch) => {
     if (err) {
-      console.log(err);
-    } else {
+      res.status(400).json({ err, message: "Senha incorreta" });
+    }
+    if (isMatch) {
       res.status(200).json({
-        message: "Usuario logado com sucesso",
-        id: user._id,
+        message: "Usuario logado",
+        id: isMatch._id,
         token: createToken(user._id),
       });
     }
