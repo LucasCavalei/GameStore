@@ -1,17 +1,18 @@
-const User = require("../models/User");
-const bcrypt = require("bcrypt");
-const { createToken } = require("../isAuth.js");
+import User from "../models/User.js";
+import bcrypt from "bcrypt";
 
-module.exports.signup = async (req, res) => {
+import { createToken } from "../isAuth.js";
+
+export const signup = async (req, res) => {
   const { name, email, password } = req.body;
   if (!email || !password) {
-    res
+    return res
       .status(400)
       .json({ message: "senha e email não podem estar em branco." });
   }
   const userExists = await User.findOne({ email });
   if (userExists) {
-    res.status(400).json({ message: "usuario já existe" });
+    return res.status(400).json({ message: "usuario já existe" });
   }
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(password, salt);
@@ -35,7 +36,7 @@ module.exports.signup = async (req, res) => {
   });
 };
 
-module.exports.login = async (req, res) => {
+export const login = async (req, res) => {
   const { email, password } = req.body;
 
   const user = await User.findOne({ email });

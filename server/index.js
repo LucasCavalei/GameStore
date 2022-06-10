@@ -1,22 +1,27 @@
-const express = require("express");
+import express from "express";
 const app = express();
-const mongoose = require("mongoose");
-const cors = require("cors");
-const port = 8080;
-const morgan = require("morgan");
-require("dotenv").config();
 
-const userRoute = require("./routes/userRoute");
-const orderRoute = require("./routes/orderRoute");
+import dotenv from "dotenv";
+
+dotenv.config();
+
+import mongoose from "mongoose";
+
+import cors from "cors";
+import morgan from "morgan";
+
+const port = 8888;
+
+import userRouter from "./routes/userRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 app.use(express.json());
-app.use("/user", userRoute);
-app.use("/order", orderRoute);
+app.use("/user", userRouter);
+app.use("/order", orderRouter);
 app.use(morgan("tiny"));
 
 app.use(cors());
-
-app.use(express.json());
+console.log(process.env.JWT_SECRET);
 
 mongoose
   .connect(process.env.MONGO_URI, {

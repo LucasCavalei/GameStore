@@ -8,8 +8,7 @@ import {
   LOG_OUT_USER,
   LOADING_USER,
 } from "./actionTypes.js";
-
-const axios = require("axios");
+import axios from "axios";
 
 export const createUser =
   ({ userInfo }) =>

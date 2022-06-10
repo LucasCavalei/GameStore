@@ -1,8 +1,10 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const cartSchema = mongoose.Schema({
-    name: { type: String, required: true },
-    price: { type: Number, required: true }
+  name: { type: String, required: true },
+  price: { type: Number, required: true },
 });
 
-module.exports = mongoose.model('Cart', cartSchema);
+// export default mongoose.model("Cart", cartSchema);
+const Cart = mongoose.model("Cart", cartSchema);
+export default Cart;

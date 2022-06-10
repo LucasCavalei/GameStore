@@ -1,14 +1,19 @@
 {
-  "name": "server",
+  "name": "Ecommerce-Desafio",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "cd server && node index.js"
-  },
-  "author": "",
+  "description": "Register/login user. Made to pick, save and process a small and simple purchaise ",
+  "main": "server/index.js",
+  "type": "module",
+  "author": "Lucas Cavaleiro <lucas.oklp@g.com>",
   "license": "ISC",
+  "scripts": {
+    "start": "babel-node -r dotenv/config server/index.js"
+  },
   "dependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.17.12",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.17.12",
     "axios": "^0.22.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
