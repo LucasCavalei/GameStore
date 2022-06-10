@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useState } from "react";
+import React from "react";
 import Home from "./pages/home/Home";
 import Signup from "./pages/forms/Signup";
 import Header from "./components/header/Header";

@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../redux/actions/cartAction";
 import { ADD_TO_CART, SET_SHOW_CART } from "../../redux/actions/actionTypes";
 
 function Produto({ product, showCart }) {

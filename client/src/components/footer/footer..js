@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Facebook from "../../assets/icons/Facebook.js";
 import Instagram from "../../assets/icons/Instagram.js";

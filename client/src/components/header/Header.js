@@ -4,9 +4,7 @@ import logo from "../../assets/Lucasgasmes.png";
 import gamesFlickr from "../../assets/flickergames.jpg";
 import "./header.css";
 
-function Header(props) {
-  const { carItems } = props;
-
+function Header() {
   return (
     <div className="header-container">
       <div className="image-logo">

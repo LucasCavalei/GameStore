@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import Lottie from "react-lottie";
 
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
 import { createUser } from "../../redux/actions/userAction";
-import loading from "../../assets/lotties/loading.json";
+// import loading from "../../assets/lotties/loading.json";
 import logSuccess from "../../assets/lotties/unlock.json";
-import AlertForm from "./alerts/AlertForm";
+// import AlertForm from "./alerts/AlertForm";
 
 import "./form.css";
 
 const Signup = ({ isLogged, loading, user, error }) => {
-  const [showLottie, setShowLottie] = useState(false);
+  // const [showLottie, setShowLottie] = useState(false);
   const { register, handleSubmit, errors } = useForm();
 
   const [logSuccessAnimation, setLogSuccessAnimation] = useState({

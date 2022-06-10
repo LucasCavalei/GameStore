@@ -7,7 +7,7 @@ import { IoMdAppstore } from "react-icons/io";
 import { LogOut } from "../../redux/actions/userAction";
 import Cart from "../carrinho/Cart";
 import "./sidenav.css";
-import { SET_SHOW_CART, LOG_OUT_USER } from "../../redux/actions/actionTypes";
+import { SET_SHOW_CART } from "../../redux/actions/actionTypes";
 
 const Sidenav = ({ showCart, isLogged, user }) => {
   const dispatch = useDispatch();
