@@ -10,7 +10,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
 
-const port = 8888;
+const port = 8080;
 
 import userRouter from "./routes/userRoute.js";
 import orderRouter from "./routes/orderRoute.js";

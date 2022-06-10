@@ -1,11 +1,19 @@
-const express = require("express");
-const router = express.Router();
-const orderController = require("../controllers/order");
-const { isAuth } = require("../isAuth.js");
+// const express = require("express");
+import express from "express";
+const orderRouter = express.Router();
+//  const orderController = require("../controllers/order");
+// import orderController from "../controllers/order";
+import { get_order } from "../controllers/order.js";
+import { post_order } from "../controllers/order.js";
 
-router.post("/", isAuth, orderController.post_order);
-router.get("/", function (req, res) {
+// const { isAuth } = require("../isAuth.js");
+import { IsAuth } from "../isAuth.js";
+const isAuth = new IsAuth();
+
+orderRouter.post("/", isAuth.authorize, post_order);
+orderRouter.get("/", get_order);
+orderRouter.get("/", function (req, res) {
   res.send("sou order route");
 });
 
-module.exports = router;
+export default orderRouter;
