@@ -19,7 +19,6 @@ const usuarioSchema = mongoose.Schema({
   },
 });
 
-// export default mongoose.model("User", usuarioSchema); // essa linha precisou ficar abaixo do bcrypt para funcionar
 const User = mongoose.model("User", usuarioSchema);
 
 export default User;

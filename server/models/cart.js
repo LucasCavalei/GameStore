@@ -5,6 +5,5 @@ const cartSchema = mongoose.Schema({
   price: { type: Number, required: true },
 });
 
-// export default mongoose.model("Cart", cartSchema);
 const Cart = mongoose.model("Cart", cartSchema);
 export default Cart;

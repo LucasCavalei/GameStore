@@ -3,13 +3,6 @@ import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 dotenv.config();
 
-// const createToken = async (user) => {
-//   const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-//     expiresIn: "1h",
-//   });
-//   return token;
-// };
-
 class Authorization {
   authorize(req, res, next) {
     const authorization = req.headers.authorization;
