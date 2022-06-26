@@ -9,7 +9,9 @@ import {
 export const finalizarCompra =
   ({ cartItem, somaCart, user }) =>
   (dispatch) => {
-    const { id } = user;
+    // const { userId, token } = user;
+
+    // console.log("somaCart", somaCart, "user", userId);
 
     const orderProducts = cartItem.map((item) => ({
       id: item.id,
@@ -20,8 +22,9 @@ export const finalizarCompra =
     const orderData = {
       orderProducts,
       somaCart,
-      user: id,
+      user: user.userId,
     };
+    console.log(orderData);
 
     axios
       .post("/order", orderData, {
@@ -30,13 +33,24 @@ export const finalizarCompra =
         },
       })
       .then((response) => {
+        console.log("sou response cartAction", response);
         dispatch({
           type: PURCHASE_SUCCESS,
           payload: response.data,
         });
+        {
+          console.log("deu erto");
+        }
+
+        // {
+        //   console.log("sou o token headers no redux action", user.token);
+        // }
       })
       .catch((error) => {
         console.log(error);
+        {
+          console.log("deu ruim", error);
+        }
       });
   };
 export const addToCart = (product) => (dispatch) => {

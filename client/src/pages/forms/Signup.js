@@ -51,7 +51,13 @@ const Signup = ({ isLogged, loading, user, error }) => {
     };
     dispatch(createUser({ userInfo }));
   };
-
+  console.log("sou user ultimo", user);
+  // const teste = ({ user }) => {
+  //   const { userToken } = user;
+  //   console.log("sou o que eu estva esprado", userToken);
+  // };
+  // {
+  // }
   return (
     <>
       {isLogged ? (
@@ -71,6 +77,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
       ) : null}
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
+        {/* <h2>{user}</h2> */}
         <label>Nome: </label>
         <input type="text" {...register("name")} />
         <label> Email </label>
@@ -93,7 +100,7 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log("sou mapState", state);
+  console.log("sou mapState", state.user);
   return {
     error: state.errorReducer.message,
     isLogged: state.userReducer.isLogged,

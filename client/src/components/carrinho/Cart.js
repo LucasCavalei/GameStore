@@ -46,15 +46,16 @@ export const CompraEncerrada = ({ compra }) => {
   return (
     <div>
       <div className="cart-final">
-        <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.total}</h3>
+        <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
         <h5>Código da compra </h5>
-        <h4>{compra.orderId}</h4>
+        <h4>{compra._id}</h4>
       </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log("state . cade a compra", state);
   return {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,

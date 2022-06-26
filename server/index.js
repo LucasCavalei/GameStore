@@ -10,10 +10,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
 
-const port = 8080;
+const port = 8888;
 
-import userRouter from "./routes/userRoute.js";
-import orderRouter from "./routes/orderRoute.js";
+import userRouter from "./routes/user-route.js";
+import orderRouter from "./routes/order-route.js";
 
 app.use(express.json());
 app.use("/user", userRouter);
