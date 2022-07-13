@@ -12,7 +12,6 @@ function App() {
   return (
     <BrowserRouter>
       <Header />
-
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/signup" element={<Signup />} />
