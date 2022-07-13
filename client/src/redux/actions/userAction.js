@@ -34,10 +34,10 @@ export const createUser =
       });
   };
 
-export const loginUser = (userInfo) => (dispatch) => {
+export const loginUser = (userData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user/login", userInfo)
+    .post("/user/login", userData)
     .then((response) => {
       console.log(
         "sou LOGINuser response cart vindo do controller",

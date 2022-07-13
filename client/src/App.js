@@ -4,30 +4,24 @@ import Home from "./pages/home/Home";
 import Signup from "./pages/forms/Signup";
 import Header from "./components/header/Header";
 import Login from "./pages/forms/Login";
-import { Switch, BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Router, Route, Routes } from "react-router-dom";
 import Footer from "./components/footer/footer.";
 import LottieIssue from "./pages/404/LottieIssue";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Header />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
-        <Route exact path="/login">
-          <Login />
-        </Route>
-        <Route exact path="/issue">
-          <LottieIssue />
-        </Route>
-      </Switch>
+
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/issue" element={<LottieIssue />} />
+        {/* </Route> */}
+      </Routes>
       <Footer />
-    </Router>
+    </BrowserRouter>
   );
 }
 

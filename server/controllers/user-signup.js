@@ -4,8 +4,8 @@ const userRepository = new UserRepository();
 
 export class Signup {
   async execute(httpResquest) {
+    // não estou fazenodo uso do name, depois excluir
     const { name, email, password } = httpResquest.body;
-    console.log(name, email, password);
     if (!email || !password) {
       return {
         statusCode: 400,
@@ -29,5 +29,6 @@ export class Signup {
       statusCode: 200,
       body: newUser,
     };
+    return nip;
   }
 }

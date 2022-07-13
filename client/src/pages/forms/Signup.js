@@ -44,12 +44,12 @@ const Signup = ({ isLogged, loading, user, error }) => {
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
-    const userInfo = {
+    const userData = {
       name: e.name,
       email: e.email,
       password: e.password,
     };
-    dispatch(createUser({ userInfo }));
+    dispatch(createUser({ userData }));
   };
   console.log("sou user ultimo", user);
   // const teste = ({ user }) => {
