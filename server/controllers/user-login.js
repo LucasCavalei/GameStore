@@ -1,6 +1,6 @@
-import createUserRepository from "../repository/create-user.js";
+import CreateUserRepository from "../repository/create-user.js";
 import { Authorization } from "../auth.js";
-const userRepository = new createUserRepository();
+const createUserRepository = new CreateUserRepository();
 const authorization = new Authorization();
 
 export class Login {
@@ -12,7 +12,7 @@ export class Login {
         body: "senha e email não podem estar em branco",
       };
     }
-    const user = await userRepository.getUserByEmail(email);
+    const user = await createUserRepository.loadByEmail(email);
     if (!user) {
       return {
         statusCode: 400,

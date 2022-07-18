@@ -12,7 +12,7 @@ class CreateUserRepository {
     const savedUser = await userCollection.insertOne({
       name,
       email,
-      hashedPassword,
+      password: hashedPassword,
     });
     return await this.generateToken(savedUser);
   }
