@@ -1,6 +1,7 @@
-import UserRepository from "../repository/create-user.js";
-
-const userRepository = new UserRepository();
+import CreateUserRepository from "../repository/create-user.js";
+import { LoadByEmailRepository } from "../repository/load-by-email-repository.js";
+const loadByEmailRepository = new LoadByEmailRepository();
+const createUserRepository = new CreateUserRepository();
 
 export class Signup {
   async execute(httpResquest) {
@@ -12,7 +13,8 @@ export class Signup {
         body: "senha e email não podem estar em branco",
       };
     }
-    const userExists = await userRepository.getUserByEmail(email);
+
+    const userExists = await createUserRepository.loadByEmail(email);
     if (userExists) {
       return {
         statusCode: 400,
@@ -20,7 +22,7 @@ export class Signup {
       };
     }
 
-    const newUser = await userRepository.createUser({
+    const newUser = await createUserRepository.createUser({
       name,
       email,
       password,
@@ -29,6 +31,5 @@ export class Signup {
       statusCode: 200,
       body: newUser,
     };
-    return nip;
   }
 }

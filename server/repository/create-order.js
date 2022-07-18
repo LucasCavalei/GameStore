@@ -1,6 +1,6 @@
 import Order from "../models/order.js";
 
-class OrderRepository {
+class createOrderRepository {
   async createOrder({ orderProducts, somaCart, user }) {
     const order = await Order.create({
       orderProducts,
@@ -11,4 +11,4 @@ class OrderRepository {
   }
 }
 
-export default OrderRepository;
+export default createOrderRepository;

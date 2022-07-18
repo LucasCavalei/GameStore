@@ -32,6 +32,7 @@ class Authorization {
     return null;
   }
   async createToken(user) {
+    console.log("user no crateoekn", user);
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });

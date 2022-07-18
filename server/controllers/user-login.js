@@ -1,6 +1,6 @@
-import UserRepository from "../repository/create-user.js";
+import createUserRepository from "../repository/create-user.js";
 import { Authorization } from "../auth.js";
-const userRepository = new UserRepository();
+const userRepository = new createUserRepository();
 const authorization = new Authorization();
 
 export class Login {

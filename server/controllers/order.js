@@ -1,6 +1,6 @@
 import Order from "../models/order.js";
-import OrderRepository from "../repository/create-order.js";
-const orderRepository = new OrderRepository();
+import createOrderRepository from "../repository/create-order.js";
+const orderRepository = new createOrderRepository();
 
 class FinishOrder {
   async execute(httpRequest) {
