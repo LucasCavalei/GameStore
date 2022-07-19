@@ -1,9 +1,9 @@
-import User from "../models/user.js";
-import dotenv from "dotenv";
+import User from '../models/user.js';
+import dotenv from 'dotenv';
 
-import mongoose from "mongoose";
-import { app } from "../app.js";
-import request from "supertest";
+import mongoose from 'mongoose';
+import { app } from '../app.js';
+import request from 'supertest';
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_TEST, {
@@ -16,11 +16,11 @@ mongoose.connect(process.env.MONGO_TEST, {
 
 // })
 
-test("qasdasd", async () => {
-  const response = await request(app).post("/user/signup").send({
-    name: "deveePagarNme",
-    email: "ssskdscSdssdaasl2ssnvsssssadsddSleseiro@g.com",
-    password: "121212",
+test('qasdasd', async () => {
+  const response = await request(app).post('/user/signup').send({
+    name: 'deveePagarNme',
+    email: 'ssskdscSdssdaasl2ssnvsssssadsddSleseiro@g.com',
+    password: '121212',
   });
   expect(response.statusCode).toBe(200);
 });

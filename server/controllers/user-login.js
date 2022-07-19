@@ -1,5 +1,5 @@
-import CreateUserRepository from "../repository/create-user.js";
-import { Authorization } from "../auth.js";
+import CreateUserRepository from '../repository/create-user.js';
+import { Authorization } from '../auth.js';
 const createUserRepository = new CreateUserRepository();
 const authorization = new Authorization();
 
@@ -9,14 +9,14 @@ export class Login {
     if (!email || !password) {
       return {
         statusCode: 400,
-        body: "senha e email não podem estar em branco",
+        body: 'senha e email não podem estar em branco',
       };
     }
     const user = await createUserRepository.loadByEmail(email);
     if (!user) {
       return {
         statusCode: 400,
-        body: "Usuario não existe",
+        body: 'Usuario não existe',
       };
     }
     const userToken = await authorization.comparer(user, password);

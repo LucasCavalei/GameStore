@@ -1,5 +1,5 @@
-import CreateUserRepository from "../repository/create-user.js";
-import { LoadByEmailRepository } from "../repository/load-by-email-repository.js";
+import CreateUserRepository from '../repository/create-user.js';
+import { LoadByEmailRepository } from '../repository/load-by-email-repository.js';
 const loadByEmailRepository = new LoadByEmailRepository();
 const createUserRepository = new CreateUserRepository();
 
@@ -10,7 +10,7 @@ export class Signup {
     if (!email || !password) {
       return {
         statusCode: 400,
-        body: "senha e email não podem estar em branco",
+        body: 'senha e email não podem estar em branco',
       };
     }
 
@@ -18,7 +18,7 @@ export class Signup {
     if (userExists) {
       return {
         statusCode: 400,
-        body: "Usuario ja existe",
+        body: 'Usuario ja existe',
       };
     }
 
