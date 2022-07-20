@@ -2,7 +2,7 @@ import { Authorization } from '../../auth.js';
 import { MongoHelper } from '../../helpers/mongo-helper.js';
 const authorization = new Authorization();
 
-export class LoadByEmailRepository {
+class LoadByEmailRepository {
   async loadByEmail(email, password) {
     const userCollection = await MongoHelper.getCollection('user');
     const user = await userCollection.findOne({ email });
@@ -15,4 +15,10 @@ export class LoadByEmailRepository {
     };
     return newUser;
   }
+  async findUser(email) {
+    const userCollection = await MongoHelper.getCollection('user');
+    const user = await userCollection.findOne({ email });
+    return user;
+  }
 }
+export default LoadByEmailRepository;

@@ -1,5 +1,6 @@
 import { MongoHelper } from '../../helpers/mongo-helper';
-import { LoadByEmailRepository } from './load-by-email-repository.js';
+// import { LoadByEmailRepository } from './load-by-email-repository.js';
+import LoadByEmailRepository from './load-by-email-repository';
 // const MissingParamError = require('../../utils/errors/missing-param-error');
 
 const makeSut = () => {

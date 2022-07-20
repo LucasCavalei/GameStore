@@ -6,9 +6,11 @@ const authorization = new Authorization();
 
 class CreateUserRepository {
   async createUser({ name, email, password }) {
+    console.log('create', name, email, password);
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
     const userCollection = await MongoHelper.getCollection('user');
+    // console.log({ name, email, password: hashedPassword });
     const savedUser = await userCollection.insertOne({
       name,
       email,
@@ -16,11 +18,6 @@ class CreateUserRepository {
     });
     return await this.generateToken(savedUser);
   }
-  // async loadByEmail(email) {
-  //   const userCollection = await MongoHelper.getCollection('user');
-  //   const result = await userCollection.findOne({ email });
-  //   return result;
-  // }
 
   async generateToken(savedUser) {
     const userToken = await authorization.createToken(savedUser);

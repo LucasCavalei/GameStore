@@ -1,4 +1,4 @@
-import { LoadByEmailRepository } from '../../repository/user/load-by-email-repository.js';
+import LoadByEmailRepository from '../../repository/user/load-by-email-repository.js';
 const loadByEmailRepository = new LoadByEmailRepository();
 
 export class Login {
