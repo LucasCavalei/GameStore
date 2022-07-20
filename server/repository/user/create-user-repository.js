@@ -1,7 +1,7 @@
 // import User from "../models/User.js";
-import { MongoHelper } from '../helpers/mongo-helper.js';
+import { MongoHelper } from '../../helpers/mongo-helper.js';
 import bcrypt from 'bcrypt';
-import { Authorization } from '../auth.js';
+import { Authorization } from '../../auth.js';
 const authorization = new Authorization();
 
 class CreateUserRepository {
@@ -16,15 +16,14 @@ class CreateUserRepository {
     });
     return await this.generateToken(savedUser);
   }
-  async loadByEmail(email) {
-    const userCollection = await MongoHelper.getCollection('user');
-    const result = await userCollection.findOne({ email });
-    return result;
-  }
+  // async loadByEmail(email) {
+  //   const userCollection = await MongoHelper.getCollection('user');
+  //   const result = await userCollection.findOne({ email });
+  //   return result;
+  // }
 
   async generateToken(savedUser) {
     const userToken = await authorization.createToken(savedUser);
-    console.log('userToken', userToken);
     const newUser = {
       token: userToken,
       userId: savedUser.insertedId,

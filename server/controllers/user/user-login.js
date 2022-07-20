@@ -1,7 +1,5 @@
-import CreateUserRepository from '../repository/create-user.js';
-import { Authorization } from '../auth.js';
-const createUserRepository = new CreateUserRepository();
-const authorization = new Authorization();
+import { LoadByEmailRepository } from '../../repository/user/load-by-email-repository.js';
+const loadByEmailRepository = new LoadByEmailRepository();
 
 export class Login {
   async execute(httpResquest) {
@@ -12,17 +10,16 @@ export class Login {
         body: 'senha e email não podem estar em branco',
       };
     }
-    const user = await createUserRepository.loadByEmail(email);
+    const user = await loadByEmailRepository.loadByEmail(email, password);
     if (!user) {
       return {
         statusCode: 400,
         body: 'Usuario não existe',
       };
     }
-    const userToken = await authorization.comparer(user, password);
     return {
       statusCode: 200,
-      body: userToken,
+      body: user,
     };
   }
 }

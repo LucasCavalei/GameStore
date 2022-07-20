@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import dotenv from "dotenv";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import dotenv from 'dotenv';
 dotenv.config();
 
 class Authorization {
@@ -11,19 +11,18 @@ class Authorization {
 
       jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
         if (err) {
-          res.status(401).send({ message: "Token invalido" });
+          res.status(401).send({ message: 'Token invalido' });
         } else {
           req.user = decode;
           next();
         }
       });
     } else {
-      res.status(401).send({ message: "Sem Token" });
+      res.status(401).send({ message: 'Sem Token' });
     }
   }
   async comparer(user, password) {
     const isValid = await bcrypt.compare(password, user.password);
-    console.log("sou is valid", isValid);
     if (isValid) {
       const acessToken = await this.createToken(user);
 
@@ -32,9 +31,8 @@ class Authorization {
     return null;
   }
   async createToken(user) {
-    console.log("user no crateoekn", user);
     const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "1h",
+      expiresIn: '1h',
     });
     return token;
   }

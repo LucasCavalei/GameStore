@@ -1,4 +1,4 @@
-import Order from "../models/order.js";
+import Order from '../../models/order.js';
 
 class createOrderRepository {
   async createOrder({ orderProducts, somaCart, user }) {

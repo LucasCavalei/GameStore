@@ -1,8 +1,8 @@
-import User from '../models/user.js';
+import User from '../../models/user.js';
 import dotenv from 'dotenv';
 
 import mongoose from 'mongoose';
-import { app } from '../app.js';
+import { app } from '../../app.js';
 import request from 'supertest';
 dotenv.config();
 
