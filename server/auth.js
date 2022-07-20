@@ -25,7 +25,6 @@ class Authorization {
     const isValid = await bcrypt.compare(password, user.password);
     if (isValid) {
       const acessToken = await this.createToken(user);
-
       return acessToken;
     }
     return null;
@@ -38,4 +37,4 @@ class Authorization {
   }
 }
 
-export { Authorization };
+export default Authorization;
