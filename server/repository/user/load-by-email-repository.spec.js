@@ -1,13 +1,13 @@
-import { MongoHelper } from '../../helpers/mongo-helper';
+import MongoHelper from '../../helpers/mongo-helper.js';
 // import { LoadByEmailRepository } from './load-by-email-repository.js';
-import LoadByEmailRepository from './load-by-email-repository';
+import LoadByEmailRepository from './load-by-email-repository.js';
 // const MissingParamError = require('../../utils/errors/missing-param-error');
 
 const makeSut = () => {
   return new LoadUserByEmailRepository();
 };
 
-describe('LoadUserByEmail Repository', () => {
+describe('LoadUserByEmail Repository', async () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URI);
     userModel = await MongoHelper.getCollection('users');

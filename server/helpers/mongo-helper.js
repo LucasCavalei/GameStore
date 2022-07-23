@@ -1,22 +1,34 @@
-import { MongoClient } from "mongodb";
-// falta dd esee mando Collection no api-Signup-LIMPINHO
-import dotenv from "dotenv";
+import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
-const uri = process.env.MONGO_TEST;
+const uri = process.env.MONGO_URI;
 
-export const MongoHelper = {
-  // async connect(uri) {
+const MongoHelper = {
   async connect() {
-    const connection = MongoClient.connect(uri, {
+    const client = new MongoClient(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
-    return connection;
-  },
-  async getCollection(name) {
-    const client = await MongoHelper.connect();
-    return client.db().collection(name);
+    try {
+      await client.connect();
+      console.log('conectado');
+    } catch (err) {
+      console.log('erro ao conectar', err);
+    }
+
+    const db = client.db('test');
+    const collection = db.collection('test');
+    const result = await collection.insertOne({
+      name: 'teste',
+      email: 'lucasCavaleiro@g.com',
+    });
+    console.log(result.insertedId);
+
+    const result2 = await collection.find({}).toArray();
+    console.log(result2);
+    client.close();
   },
 };
+export default MongoHelper; // ------------------------------------------------

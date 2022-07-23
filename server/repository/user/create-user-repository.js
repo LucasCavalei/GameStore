@@ -1,15 +1,14 @@
 // import User from "../models/User.js";
-import { MongoHelper } from '../../helpers/mongo-helper.js';
+import MongoHelper from '../../helpers/mongo-helper.js';
 import bcrypt from 'bcrypt';
-import { Authorization } from '../../auth.js';
+import Authorization from '../../auth.js';
 const authorization = new Authorization();
 
 class CreateUserRepository {
   async createUser({ name, email, password }) {
-    console.log('create', name, email, password);
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const userCollection = await MongoHelper.getCollection('user');
+    const userCollection = await MongoHelper.getCollection('users');
     // console.log({ name, email, password: hashedPassword });
     const savedUser = await userCollection.insertOne({
       name,

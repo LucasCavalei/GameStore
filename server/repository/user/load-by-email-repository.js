@@ -1,10 +1,10 @@
-import { Authorization } from '../../auth.js';
-import { MongoHelper } from '../../helpers/mongo-helper.js';
+import Authorization from '../../auth.js';
+import MongoHelper from '../../helpers/mongo-helper.js';
 const authorization = new Authorization();
 
 class LoadByEmailRepository {
   async loadByEmail(email, password) {
-    const userCollection = await MongoHelper.getCollection('user');
+    const userCollection = await MongoHelper.getCollection('users');
     const user = await userCollection.findOne({ email });
     // return user && MongoHelper.map(user);
     const userToken = await authorization.comparer(user, password);
@@ -16,8 +16,8 @@ class LoadByEmailRepository {
     return newUser;
   }
   async findUser(email) {
-    const userCollection = await MongoHelper.getCollection('user');
-    const user = await userCollection.findOne({ email });
+    const userCollection = await MongoHelper.getCollection('users');
+    // const user = await userCollection.findOne({ email });
     return user;
   }
 }

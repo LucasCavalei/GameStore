@@ -13,7 +13,7 @@ export const MongoHelper = {
       await client.connect();
       console.log('ja ta no coneect');
       const db = client.db('test');
-      const result = await db().collection('user');
+      const result = await db().collection('users');
       //   const collection = await db.collection("user");
       //   console.log(collection);
     } catch (err) {
