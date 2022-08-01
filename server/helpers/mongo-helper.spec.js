@@ -1,19 +1,13 @@
-const sut = require('./mongo-helper')
+import MongoHelper from './mongo-helper.js';
 
 describe('Mongo Helper', () => {
+  console.log('before all', process.env.MONGO_URI);
   beforeAll(async () => {
-    await sut.connect(process.env.MONGO_URL)
-  })
+    await MongoHelper.connect(process.env.MONGO_URI);
+  });
 
-  afterAll(async () => {
-    await sut.disconnect()
-  })
-
-  test('Should reconnect when getCollection() is invoked and client is disconnected', async () => {
-    expect(sut.db).toBeTruthy()
-    await sut.disconnect()
-    expect(sut.db).toBeFalsy()
-    await sut.getCollection('users')
-    expect(sut.db).toBeTruthy()
-  })
-})
+  test('Should reconnect if mongodb is down', async () => {
+    let accountCollection = await MongoHelper.getCollection('todos');
+    expect(accountCollection).toBeTruthy();
+  });
+});

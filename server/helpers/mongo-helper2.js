@@ -1,26 +1,36 @@
 import { MongoClient } from 'mongodb';
 import dotenv from 'dotenv';
 
-const uri =
-  'mongodb+srv://LucasBanco:12065722@cluster0.shujl.mongodb.net/?retryWrites=true&w=majority';
-
 dotenv.config();
 
-export const MongoHelper = {
-  async connect() {
-    try {
-      const client = new MongoClient();
-      await client.connect();
-      console.log('ja ta no coneect');
+const MongoHelper = {
+  connect() {
+    const mongoClient = new MongoClient(url);
+    mongoClient.connect(function (err, client) {
       const db = client.db('test');
-      const result = await db().collection('users');
-      //   const collection = await db.collection("user");
-      //   console.log(collection);
-    } catch (err) {
-      console.log('alguma coisa errada ocorreu');
-    } finally {
       client.close();
-    }
+    });
   },
-  async getCollection() {},
 };
+export default MongoHelper;
+// const MongoHelper = {
+//   async connect(uri) {
+//     this.uri = uri;
+//     const client = new MongoClient(this.uri);
+//     try {
+//       await client.connect();
+//       const db = client.db('test');
+//     } catch (err) {
+//       console.log('alguma coisa errada ocorreu');
+//     } finally {
+//       client.close();
+//     }
+//   },
+//   async disconnect() {
+//     await this.client.close();
+//   },
+//   async getCollection(name) {
+//     await this.connect(this.uri);
+//     return db.collection(name);
+//   },
+// };

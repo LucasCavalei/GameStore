@@ -4,7 +4,7 @@ const authorization = new Authorization();
 
 class LoadByEmailRepository {
   async loadByEmail(email, password) {
-    const userCollection = await MongoHelper.getCollection('users');
+    const userCollection = await MongoHelper.getCollection('user');
     const user = await userCollection.findOne({ email });
     // return user && MongoHelper.map(user);
     const userToken = await authorization.comparer(user, password);
@@ -16,8 +16,9 @@ class LoadByEmailRepository {
     return newUser;
   }
   async findUser(email) {
-    const userCollection = await MongoHelper.getCollection('users');
+    const userCollection = await MongoHelper.getCollection('user');
     const user = await userCollection.findOne({ email });
+    console.log(user);
     return user;
   }
 }
