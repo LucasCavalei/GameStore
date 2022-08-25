@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 const app = express();
 
 // import dotenv from "dotenv";
@@ -7,23 +7,23 @@ const app = express();
 
 // import mongoose from "mongoose";
 
-import cors from "cors";
-import morgan from "morgan";
+import cors from 'cors';
+import morgan from 'morgan';
 
 // const port = 8888;
 
-import userRouter from "./routes/user-route.js";
-import orderRouter from "./routes/order-route.js";
+import userRouter from './routes/user-route.js';
+import orderRouter from './routes/order-route.js';
 
 app.use(express.json());
-app.use("/user", userRouter);
-app.use("/order", orderRouter);
-app.use(morgan("tiny"));
+app.use('/user', userRouter);
+app.use('/order', orderRouter);
+app.use(morgan('tiny'));
 
 app.use(cors());
 
 // mongoose
-//   .connect(process.env.MONGO_URI, {
+//   .connect(process.env.MONGO_URL, {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 //   })

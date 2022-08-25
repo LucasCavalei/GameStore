@@ -14,8 +14,15 @@ const MongoHelper = {
       console.log(err);
     }
   },
+  async disconnect() {
+    try {
+      await this.client.disconnect();
+    } catch (err) {
+      console.log("can't disconnect", err);
+    }
+  },
+
   async getCollection(name) {
-    //  isConnected is prepriciated if (!this.client?.isConnected())
     return this.client.db().collection(name);
   },
 };

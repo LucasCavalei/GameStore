@@ -1,5 +1,5 @@
-import LoadByEmailRepository from '../../repository/user/load-by-email-repository.js';
-const loadByEmailRepository = new LoadByEmailRepository();
+import LoadUserByEmailRepository from '../../repository/user/load-by-email-repository.js';
+const loadUserByEmailRepository = new LoadUserByEmailRepository();
 
 export class Login {
   async execute(httpResquest) {
@@ -10,7 +10,7 @@ export class Login {
         body: 'senha e email não podem estar em branco',
       };
     }
-    const user = await loadByEmailRepository.loadByEmail(email, password);
+    const user = await loadUserByEmailRepository.loadByEmail(email, password);
     if (!user) {
       return {
         statusCode: 400,

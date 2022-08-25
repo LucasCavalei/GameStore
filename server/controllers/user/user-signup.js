@@ -1,7 +1,7 @@
 // import CreateUserRepository from '../repository/user/create-user-repository.js';
 import CreateUserRepository from '../../repository/user/create-user-repository.js';
-import LoadByEmailRepository from '../../repository/user/load-by-email-repository.js';
-const loadByEmailRepository = new LoadByEmailRepository();
+import LoadUserByEmailRepository from '../../repository/user/load-by-email-repository.js';
+const loadUserByEmailRepository = new LoadUserByEmailRepository();
 const createUserRepository = new CreateUserRepository();
 
 export class Signup {
@@ -15,7 +15,7 @@ export class Signup {
       };
     }
 
-    const userExists = await loadByEmailRepository.findUser(email);
+    const userExists = await loadUserByEmailRepository.findUser(email);
     if (userExists) {
       return {
         statusCode: 400,

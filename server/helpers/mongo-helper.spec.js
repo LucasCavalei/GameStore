@@ -1,9 +1,9 @@
 import MongoHelper from './mongo-helper.js';
 
 describe('Mongo Helper', () => {
-  console.log('before all', process.env.MONGO_URI);
+  console.log('before all', process.env.MONGO_URL);
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_URI);
+    await MongoHelper.connect(process.env.MONGO_URL);
   });
 
   test('Should reconnect if mongodb is down', async () => {

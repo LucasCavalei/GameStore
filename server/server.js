@@ -3,14 +3,13 @@ import dotenv from 'dotenv';
 import { app } from './app.js';
 dotenv.config();
 
-// import mongoose from 'mongoose';
 const port = 8888;
 
 app.listen(port, () => {
   console.log('8888 port connectado');
 });
 
-MongoHelper.connect(process.env.MONGO_URI, {
+MongoHelper.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
