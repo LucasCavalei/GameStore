@@ -4,6 +4,8 @@ const loadUserByEmailRepository = new LoadUserByEmailRepository();
 export class Login {
   async execute(httpResquest) {
     const { email, password } = httpResquest.body;
+    console.log('sou usr login controller', email, password);
+
     if (!email || !password) {
       return {
         statusCode: 400,

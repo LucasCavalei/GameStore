@@ -5,8 +5,9 @@ const createOrderRepository = new CreateOrderRepository();
 
 class FinishOrder {
   async execute(httpRequest) {
-    //  console.log("Im controller", req.body);
     const { orderProducts, somaCart, user } = httpRequest.body;
+    console.log('Im controller finishorder ', orderProducts, somaCart, user);
+
     console.log('chegou a rota', orderProducts, somaCart, user);
     const order = await createOrderRepository.createOrder({
       orderProducts,

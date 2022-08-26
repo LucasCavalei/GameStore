@@ -1,4 +1,4 @@
-import MongoHelper from '../../helpers/mongo-helper';
+import MongoHelper from '../../helpers/mongo-helper.js';
 
 class createOrderRepository {
   async createOrder({ orderProducts, somaCart, user }) {
