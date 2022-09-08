@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { connect, useDispatch } from "react-redux";
-import { FaShoppingCart } from "react-icons/fa";
-import { GrUserNew } from "react-icons/gr";
-import { IoMdAppstore } from "react-icons/io";
-import { LogOut } from "../../redux/actions/userAction";
-import Cart from "../carrinho/Cart";
-import "./sidenav.css";
-import { SET_SHOW_CART } from "../../redux/actions/actionTypes";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { connect, useDispatch } from 'react-redux';
+import { FaShoppingCart } from 'react-icons/fa';
+import { GrUserNew } from 'react-icons/gr';
+import { IoMdAppstore } from 'react-icons/io';
+import { LogOut } from '../../redux/actions/userAction';
+import Cart from '../carrinho/Cart';
+import './sidenav.css';
+import { SET_SHOW_CART } from '../../redux/actions/actionTypes';
 
 const Sidenav = ({ showCart, isLogged, user }) => {
   const dispatch = useDispatch();
@@ -23,20 +23,24 @@ const Sidenav = ({ showCart, isLogged, user }) => {
     <>
       <div className="sidenav-options">
         <Link to="/">
-          <IoMdAppstore size={40} />
+          <IoMdAppstore size={40} style={{ color: '#232b2b' }} />
         </Link>
         <Link to="#" className="sidenav-contents">
-          <FaShoppingCart size={40} onClick={showCartContainer} />
+          <FaShoppingCart
+            size={40}
+            onClick={showCartContainer}
+            style={{ color: '#232b2b' }}
+          />
         </Link>
         {!isLogged ? (
-          <Link to={{ pathname: "/signup" }}>
+          <Link to={{ pathname: '/signup' }}>
             <GrUserNew size={40} />
           </Link>
         ) : (
           <button onClick={() => handleLogOut()}>Sair</button>
         )}
       </div>
-      <nav className={showCart ? "sidenav active" : "sidenav"}>
+      <nav className={showCart ? 'sidenav active' : 'sidenav'}>
         <Cart />
       </nav>
     </>

@@ -1,5 +1,4 @@
 .Footer-description {
-  border: 1px solid red;
   position: relative;
   margin: auto;
   top: 280px;
@@ -8,6 +7,9 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+}
+.Footer-description h2 {
+  color: rgb(182, 173, 173);
 }
 .footer-socialMedia {
   width: 200px;
@@ -27,13 +29,13 @@
     flex-direction: column;
     position: relative;
     top: 170px;
-    border: 5px solid blue;
   }
   .Footer-description h2 {
     padding-top: 7%;
+    color: rgb(70, 64, 64);
+    text-decoration: none;
   }
   .footer-socialMedia {
-    border: 5px solid blue;
     width: 40%;
     height: 260px;
     position: relative;

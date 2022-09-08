@@ -3,7 +3,7 @@ import {
   PURCHASE_SUCCESS,
   SET_SHOW_CART,
   ADD_TO_CART,
-} from "../actions/actionTypes.js";
+} from '../actions/actionTypes.js';
 
 const initState = {
   cartProducts: [],
@@ -22,7 +22,7 @@ export const cartReducer = (state = initState, action) => {
           ...state,
           cartProducts: state.cartProducts.map((x) =>
             x.id === existItem.id ? { ...existItem, qty: existItem.qty + 1 } : x
-          ), //
+          ),
         };
       } else {
         return {
