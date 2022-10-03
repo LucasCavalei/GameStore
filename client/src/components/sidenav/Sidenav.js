@@ -2,10 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect, useDispatch } from 'react-redux';
 import { FaShoppingCart } from 'react-icons/fa';
+import { Tooltip } from '@mui/material';
 import { GrUserNew } from 'react-icons/gr';
 import { IoMdAppstore } from 'react-icons/io';
 import { LogOut } from '../../redux/actions/userAction';
 import Cart from '../carrinho/Cart';
+// import Tippy from '@tippyjs/react';
+// import 'tippy.js/dist/tippy.css';
 import './sidenav.css';
 import { SET_SHOW_CART } from '../../redux/actions/actionTypes';
 
@@ -22,22 +25,31 @@ const Sidenav = ({ showCart, isLogged, user }) => {
   return (
     <>
       <div className="sidenav-options">
-        <Link to="/">
-          <IoMdAppstore size={40} style={{ color: '#232b2b' }} />
-        </Link>
-        <Link to="#" className="sidenav-contents">
-          <FaShoppingCart
-            size={40}
-            onClick={showCartContainer}
-            style={{ color: '#232b2b' }}
-          />
-        </Link>
-        {!isLogged ? (
-          <Link to={{ pathname: '/signup' }}>
-            <GrUserNew size={40} />
+        <Tooltip title="nossos produtos">
+          <Link to="/">
+            <IoMdAppstore size={40} style={{ color: '#232b2b' }} />
           </Link>
+        </Tooltip>
+
+        <Tooltip title="ver carrinho">
+          <Link to="#" className="sidenav-contents">
+            <FaShoppingCart
+              size={40}
+              onClick={showCartContainer}
+              style={{ color: '#232b2b' }}
+            />
+          </Link>
+        </Tooltip>
+        {!isLogged ? (
+          <Tooltip title="cadastrar-se">
+            <Link to={{ pathname: '/signup' }}>
+              <GrUserNew size={40} />
+            </Link>
+          </Tooltip>
         ) : (
-          <button onClick={() => handleLogOut()}>Sair</button>
+          <Tooltip title="sair">
+            <button onClick={() => handleLogOut()}>Sair</button>
+          </Tooltip>
         )}
       </div>
       <nav className={showCart ? 'sidenav active' : 'sidenav'}>

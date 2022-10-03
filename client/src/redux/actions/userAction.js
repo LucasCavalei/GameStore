@@ -1,4 +1,4 @@
-import { useHistory, Redirect } from "react-router-dom";
+import { useHistory, Redirect } from 'react-router-dom';
 
 import {
   CREATE_USER_SUCCESS,
@@ -7,40 +7,39 @@ import {
   LOGIN_USER_ERROR,
   LOG_OUT_USER,
   LOADING_USER,
-} from "./actionTypes.js";
-import axios from "axios";
+} from './actionTypes.js';
+import axios from 'axios';
 
-export const createUser =
-  ({ userInfo }) =>
-  (dispatch) => {
-    dispatch({ type: LOADING_USER });
-    axios
-      .post("/user/signup", userInfo)
-      .then((response) => {
-        dispatch({
-          type: CREATE_USER_SUCCESS,
-          payload: response.data,
-        });
-        console.log("sou actionuser", response.data);
-      })
-      .catch((error) => {
-        dispatch({
-          type: CREATE_USER_ERROR,
-          payload:
-            error.response && error.response.data.message
-              ? error.response.data.message
-              : error.message,
-        });
+export const createUser = (userInfo) => (dispatch) => {
+  console.log('sou user info', userInfo);
+  dispatch({ type: LOADING_USER });
+  axios
+    .post('/user/signup', userInfo, {})
+    .then((response) => {
+      dispatch({
+        type: CREATE_USER_SUCCESS,
+        payload: response.data,
       });
-  };
+      console.log('sou actionuser', response.data);
+    })
+    .catch((error) => {
+      dispatch({
+        type: CREATE_USER_ERROR,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    });
+};
 
 export const loginUser = (userData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
-    .post("/user/login", userData)
+    .post('/user/login', userData)
     .then((response) => {
       console.log(
-        "sou LOGINuser response cart vindo do controller",
+        'sou LOGINuser response cart vindo do controller',
         response.data
       );
 
@@ -48,7 +47,7 @@ export const loginUser = (userData) => (dispatch) => {
         type: LOGIN_USER_SUCCESS,
         payload: response.data,
       });
-      localStorage.setItem("user", JSON.stringify(response.data));
+      localStorage.setItem('user', JSON.stringify(response.data));
     })
     .catch((error) => {
       dispatch({

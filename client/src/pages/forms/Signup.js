@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
-import { useForm } from "react-hook-form";
-import Lottie from "react-lottie";
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
+import Lottie from 'react-lottie';
 
-import { Link } from "react-router-dom";
-import { useDispatch, connect } from "react-redux";
-import { createUser } from "../../redux/actions/userAction";
+import { Link } from 'react-router-dom';
+import { useDispatch, connect } from 'react-redux';
+import { createUser } from '../../redux/actions/userAction';
 // import loading from "../../assets/lotties/loading.json";
-import logSuccess from "../../assets/lotties/unlock.json";
+import logSuccess from '../../assets/lotties/unlock.json';
 // import AlertForm from "./alerts/AlertForm";
 
-import "./form.css";
+import './form.css';
 
 const Signup = ({ isLogged, loading, user, error }) => {
   // const [showLottie, setShowLottie] = useState(false);
@@ -30,7 +30,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
     autoplay: false,
     animationData: loading,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
   const logUnlock = {
@@ -38,7 +38,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
     autoplay: true,
     animationData: logSuccess,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
   const dispatch = useDispatch();
@@ -49,24 +49,17 @@ const Signup = ({ isLogged, loading, user, error }) => {
       email: e.email,
       password: e.password,
     };
-    dispatch(createUser({ userData }));
+    dispatch(createUser(userData));
   };
-  console.log("sou user ultimo", user);
-  // const teste = ({ user }) => {
-  //   const { userToken } = user;
-  //   console.log("sou o que eu estva esprado", userToken);
-  // };
-  // {
-  // }
   return (
     <>
       {isLogged ? (
         <Lottie
           style={{
-            position: "absolute",
-            top: "75%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            position: 'absolute',
+            top: '75%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
           options={logUnlock}
           height={200}
@@ -79,11 +72,11 @@ const Signup = ({ isLogged, loading, user, error }) => {
         <h1>Cadastre-se Já!</h1>
         {/* <h2>{user}</h2> */}
         <label>Nome: </label>
-        <input type="text" {...register("name")} />
+        <input type="text" {...register('name')} />
         <label> Email </label>
-        <input type="text" {...register("email")} />
+        <input type="text" {...register('email')} />
         <label> Senha </label>
-        <input type="text" {...register("password")} />
+        <input type="password" {...register('password')} />
         <button class="button button1" type="submit">
           Enviar
         </button>
@@ -100,7 +93,7 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log("sou mapState", state.user);
+  console.log('sou mapState', state.user);
   return {
     error: state.errorReducer.message,
     isLogged: state.userReducer.isLogged,
