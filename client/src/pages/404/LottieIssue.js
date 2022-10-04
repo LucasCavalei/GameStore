@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useS, useState } from 'react';
+import Popup from './modal/Popup';
 import Lottie from 'react-lottie';
 import workingman from '../../assets/lotties/working-man.json';
 
@@ -10,7 +11,14 @@ const defaultOptions = {
     preserveAspectRatio: 'xMidYMid slice',
   },
 };
+
 const LottieIssue = () => {
+  const [toggle, setToggle] = useState(false);
+
+  //toggle to show popup
+  const togglePopupState = () => {
+    setTimeout(() => setToggle(true), 2400);
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 350,
@@ -20,6 +28,7 @@ const LottieIssue = () => {
 
   useEffect(() => {
     scrollToTop();
+    togglePopupState();
   }, []);
 
   return (
@@ -31,6 +40,7 @@ const LottieIssue = () => {
       </h2>
 
       <Lottie options={defaultOptions} height={600} width={600} />
+      <Popup toggle={toggle} />
     </div>
   );
 };

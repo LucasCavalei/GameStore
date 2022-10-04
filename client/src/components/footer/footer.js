@@ -13,18 +13,18 @@ const Footer = () => {
       style={{ position: 'relative', top: '0px', marginBottom: '0px' }}
     >
       <div className="Footer-description">
-        <Link to="/issue">
+        <Link style={{ textDecoration: 'none' }} to="/issue">
           <h2> Quem somos</h2>
         </Link>
-        <Link to="/issue">
-          <h2>contato</h2>
+        <Link style={{ textDecoration: 'none' }} to="/issue">
+          <h2>Contato</h2>
         </Link>
-        <Link to="/issue">
-          <h2>whatever</h2>
+        <Link style={{ textDecoration: 'none' }} to="/issue">
+          <h2>Duvidas</h2>
         </Link>
       </div>
       <div className="footer-socialMedia">
-        <Link to="/issue">
+        <Link style={{ textDecoration: 'none' }} to="/issue">
           <Instagram />
 
           <Twitter />
