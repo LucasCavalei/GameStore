@@ -1,5 +1,5 @@
-import React from "react";
-import ListaProduto from "../../components/produto/ListaProduto";
+import React from 'react';
+import ListaProduto from '../../components/produto/ListaProduto';
 
 function Home() {
   return (
