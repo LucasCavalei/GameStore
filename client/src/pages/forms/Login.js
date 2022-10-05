@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { connect, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import Lottie from "react-lottie";
-import { useForm } from "react-hook-form";
-import { loginUser } from "../../redux/actions/userAction";
-import logSuccess from "../../assets/lotties/unlock.json";
-import AlertForm from "./alerts/AlertForm";
-import "./form.css";
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import Lottie from 'react-lottie';
+import { useForm } from 'react-hook-form';
+import { loginUser } from '../../redux/actions/userAction';
+import logSuccess from '../../assets/lotties/unlock.json';
+import AlertForm from './alerts/AlertForm';
+import './form.css';
 
 const Login = ({ user, isLogged, error }) => {
   const { register, handleSubmit } = useForm();
@@ -20,7 +20,7 @@ const Login = ({ user, isLogged, error }) => {
     autoplay: true,
     animationData: logSuccess,
     rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
+      preserveAspectRatio: 'xMidYMid slice',
     },
   };
 
@@ -38,10 +38,10 @@ const Login = ({ user, isLogged, error }) => {
       {isLogged ? (
         <Lottie
           style={{
-            position: "absolute",
-            top: "75%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
+            position: 'absolute',
+            top: '75%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
           }}
           options={logUnlock}
           height={200}
@@ -61,11 +61,11 @@ const Login = ({ user, isLogged, error }) => {
 
         <h1>Faça seu login</h1>
         <label>Nome: </label>
-        <input type="text" {...register("name")} />
+        <input type="text" {...register('name')} />
         <label> Email </label>
-        <input type="text" {...register("email")} />
+        <input type="text" {...register('email')} />
         <label> Senha </label>
-        <input type="text" {...register("password")} />
+        <input type="text" {...register('password')} />
         <button class="button button1" type="submit">
           Enviar
         </button>

@@ -6,7 +6,6 @@ class LoadUserByEmailRepository {
   async loadByEmail(email, password) {
     const userCollection = await MongoHelper.getCollection('users');
     const user = await userCollection.findOne({ email });
-    console.log('suseeeeeeeeeee', user);
     const userToken = await authorization.comparer(user, password);
 
     const newUser = {

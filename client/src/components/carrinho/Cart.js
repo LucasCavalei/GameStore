@@ -1,11 +1,10 @@
-import React from "react";
-import { finalizarCompra } from "../../redux/actions/cartAction.js";
-import { useDispatch, connect } from "react-redux";
-import "./cart.css";
+import React from 'react';
+import { finalizarCompra } from '../../redux/actions/cartAction.js';
+import { useDispatch, connect } from 'react-redux';
+import './cart.css';
 
 const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   const dispatch = useDispatch();
-
   const somaCart = cartItems.reduce(
     (total, res) => total + res.qty * res.price,
     0
@@ -26,18 +25,17 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
         <CompraEncerrada user={user} compra={compra} />
       ) : (
         cartItems.map((item, index) => (
-          <div className="cart-item">
-            <p style={{ fontWeight: "bold", color: "white" }}>
-              {item.name}&nbsp;&nbsp;{item.price}
+          <div className="cart-item" key={index}>
+            <p style={{ fontWeight: 'bold', color: 'white' }}>
+              {item.qty} {item.name}&nbsp;&nbsp;{item.price}
             </p>
           </div>
         ))
       )}
-      <h4>{somaCart} </h4>
-      <button
-        class="button button1"
-        onClick={() => handleFinalizarCompra()}
-      ></button>
+      <h3>{somaCart == 0 ? 'carrinho vazio' : somaCart}</h3>
+      <button class="button button1" onClick={() => handleFinalizarCompra()}>
+        {!user ? 'Finalizar compra' : 'usuario precisa estar logado'}
+      </button>
     </div>
   );
 };
@@ -55,7 +53,6 @@ export const CompraEncerrada = ({ compra }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log("state . cade a compra", state);
   return {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,

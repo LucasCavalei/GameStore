@@ -8,7 +8,7 @@ export class Signup {
   async execute(httpResquest) {
     // não estou fazenodo uso do name, depois excluir
     const { name, email, password } = httpResquest.body;
-    console.log('sou cusersignup controller', name, email, password);
+    console.log('sou usersignup controller', name, email, password);
     if (!email || !password) {
       return {
         statusCode: 400,

@@ -5,6 +5,7 @@ import { expressAdapter } from '../express-adapter.js';
 import dotenv from 'dotenv';
 const userRouter = express.Router();
 
+// ACHO QUE NAO PRECISA CD DOTENV VER DEPOIS
 dotenv.config();
 
 const signup = new Signup();

@@ -1,31 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Facebook from "../../assets/icons/Facebook.js";
-import Instagram from "../../assets/icons/Instagram.js";
-import Twitter from "../../assets/icons/Twitter.js";
-import Youtube from "../../assets/icons/Youtube.js";
-import "./footer.css";
-// import { Instagram, Youtube, Twitter, Facebook } from ".../assets/icons";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Facebook from '../../assets/icons/Facebook.js';
+import Instagram from '../../assets/icons/Instagram.js';
+import Twitter from '../../assets/icons/Twitter.js';
+import Youtube from '../../assets/icons/Youtube.js';
+import './footer.css';
 
 const Footer = () => {
   return (
     <div
       className="footer"
-      style={{ position: "relative", top: "0px", marginBottom: "0px" }}
+      style={{ position: 'relative', top: '0px', marginBottom: '0px' }}
     >
       <div className="Footer-description">
-        <Link to="/issue">
+        <Link style={{ textDecoration: 'none' }} to="/issue">
           <h2> Quem somos</h2>
         </Link>
-        <Link to="/issue">
-          <h2>contato</h2>
+        <Link style={{ textDecoration: 'none' }} to="/issue">
+          <h2>Contato</h2>
         </Link>
-        <Link to="/issue">
-          <h2>whatever</h2>
+        <Link style={{ textDecoration: 'none' }} to="/issue">
+          <h2>Duvidas</h2>
         </Link>
       </div>
       <div className="footer-socialMedia">
-        <Link to="/issue">
+        <Link style={{ textDecoration: 'none' }} to="/issue">
           <Instagram />
 
           <Twitter />
@@ -36,12 +35,12 @@ const Footer = () => {
       <div
         className="copyRight"
         style={{
-          marginLeft: "30px",
-          position: "relative",
-          top: "380px",
-          left: "100px",
-          fontSize: "12px",
-          color: "grey",
+          marginLeft: '30px',
+          position: 'relative',
+          top: '380px',
+          left: '100px',
+          fontSize: '12px',
+          color: 'grey',
         }}
       >
         <h4>Copyright © 2022 LucasCavaleiro. Todos os direitos reservados</h4>

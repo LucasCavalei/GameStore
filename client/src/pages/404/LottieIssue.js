@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import Lottie from 'react-lottie';
+// import workingman from ".../../assets/lotties/working-man.json";
 import workingman from '../../assets/lotties/working-man.json';
 
 const defaultOptions = {
@@ -10,7 +11,14 @@ const defaultOptions = {
     preserveAspectRatio: 'xMidYMid slice',
   },
 };
+
 const LottieIssue = () => {
+  const [toggle, setToggle] = useState(false);
+
+  //toggle to show popup
+  const togglePopupState = () => {
+    setTimeout(() => setToggle(true), 2400);
+  };
   const scrollToTop = () => {
     window.scrollTo({
       top: 350,
@@ -20,12 +28,19 @@ const LottieIssue = () => {
 
   useEffect(() => {
     scrollToTop();
+    togglePopupState();
   }, []);
 
   return (
-    <div className="lottie-container" style={lottieStyle}>
-      <h2>estamos trabalhando nisso</h2>
+    <div className="lottie-container">
+      <h2
+        style={{ 'text-align': 'center', position: 'relative', top: '100px' }}
+      >
+        Em construção. Estamos trabalhando nisso
+      </h2>
+
       <Lottie options={defaultOptions} height={600} width={600} />
+      <Popup toggle={toggle} />
     </div>
   );
 };
@@ -33,5 +48,4 @@ const LottieIssue = () => {
 const lottieStyle = {
   backgroundColor: 'grey',
 };
-
 export default LottieIssue;
