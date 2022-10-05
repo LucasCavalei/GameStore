@@ -1,21 +1,20 @@
-import React, { useEffect } from "react";
-import Lottie from "react-lottie";
-// import workingman from ".../../assets/lotties/working-man.json";
-import workingman from "../../assets/lotties/working-man.json";
+import React, { useEffect } from 'react';
+import Lottie from 'react-lottie';
+import workingman from '../../assets/lotties/working-man.json';
 
 const defaultOptions = {
   loop: true,
   autoplay: true,
   animationData: workingman,
   rendererSettings: {
-    preserveAspectRatio: "xMidYMid slice",
+    preserveAspectRatio: 'xMidYMid slice',
   },
 };
 const LottieIssue = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 350,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
   };
 
@@ -32,6 +31,7 @@ const LottieIssue = () => {
 };
 
 const lottieStyle = {
-  backgroundColor: "grey",
+  backgroundColor: 'grey',
 };
+
 export default LottieIssue;
