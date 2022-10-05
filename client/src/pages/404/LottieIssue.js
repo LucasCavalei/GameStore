@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
+import Popup from './modal/Popup';
 // import workingman from ".../../assets/lotties/working-man.json";
 import workingman from '../../assets/lotties/working-man.json';
 
@@ -38,7 +39,6 @@ const LottieIssue = () => {
       >
         Em construção. Estamos trabalhando nisso
       </h2>
-
       <Lottie options={defaultOptions} height={600} width={600} />
       <Popup toggle={toggle} />
     </div>
