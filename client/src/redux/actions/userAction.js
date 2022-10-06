@@ -16,6 +16,8 @@ export const createUser = (userInfo) => (dispatch) => {
   axios
     .post('/user/signup', userInfo, {})
     .then((response) => {
+      console.log('sou dado que retornou user action', response.data);
+
       dispatch({
         type: CREATE_USER_SUCCESS,
         payload: response.data,

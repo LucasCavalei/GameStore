@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Lottie from 'react-lottie';
@@ -23,6 +23,10 @@ const Login = ({ user, isLogged, error }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const onSubmit = (e) => {
     const userInfo = {
@@ -76,6 +80,13 @@ const Login = ({ user, isLogged, error }) => {
     </>
   );
 };
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 160,
+    behavior: 'smooth',
+  });
+};
+
 const mapStateToProps = (state) => {
   return {
     error: state.errorReducer.message,

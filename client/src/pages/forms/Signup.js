@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import Lottie from 'react-lottie';
@@ -42,6 +42,10 @@ const Signup = ({ isLogged, loading, user, error }) => {
     },
   };
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    scrollToTop();
+  }, []);
 
   const onSubmit = (e) => {
     const userData = {
@@ -87,6 +91,13 @@ const Signup = ({ isLogged, loading, user, error }) => {
     </>
   );
 };
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 160,
+    behavior: 'smooth',
+  });
+};
+
 Signup.propTypes = {
   isLogged: PropTypes.bool,
   user: PropTypes.object,

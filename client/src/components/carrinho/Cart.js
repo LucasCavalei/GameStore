@@ -28,7 +28,10 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
         cartItems.map((item, index) => (
           <div className="cart-item" key={index}>
             <p style={{ fontWeight: 'bold', color: 'white' }}>
-              {item.qty} {item.name}&nbsp;&nbsp;{item.price}
+              <h4>
+                {' '}
+                {item.qty} {item.name}&nbsp;&nbsp;{item.price}
+              </h4>
             </p>
           </div>
         ))
@@ -41,13 +44,14 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   );
 };
 
-export const CompraEncerrada = ({ compra }) => {
+export const CompraEncerrada = ({ compra, user }) => {
   return (
     <div>
       <div className="cart-final">
         <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
         <h5>Código da compra </h5>
         <h4>{compra._id}</h4>
+        <h4>user</h4>
       </div>
     </div>
   );

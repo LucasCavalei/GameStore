@@ -12,7 +12,6 @@
   background-image: linear-gradient(to top, #2d2d2e 100%, #1c1e20 0%);
 }
 
-.cart-item,
 p {
   padding: 1px;
   /* background-color: rgb(228, 222, 222); */
@@ -39,7 +38,9 @@ h3 {
   font-family: 'Roboto', sans-serif;
   /* background-color: rgb(228, 222, 222); */
 }
-
+.cart-container h4 {
+  color: rgb(206, 210, 218);
+}
 .button1 {
   background-color: #3e70aa; /* Green */
   border: none;
