@@ -21,6 +21,7 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
   };
   return (
     <div className="cart-container">
+      <h3>{somaCart == 0 ? 'carrinho vazio' : 'R$' + somaCart}</h3>
       {compraSuccess ? (
         <CompraEncerrada user={user} compra={compra} />
       ) : (
@@ -32,7 +33,7 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
           </div>
         ))
       )}
-      <h3>{somaCart == 0 ? 'carrinho vazio' : somaCart}</h3>
+
       <button class="button button1" onClick={() => handleFinalizarCompra()}>
         {!user ? 'Finalizar compra' : 'usuario precisa estar logado'}
       </button>

@@ -30,11 +30,14 @@ p {
 }
 .cart-container h2,
 h3 {
+  color: rgb(182, 186, 192);
+  border-bottom: 2px solid rgb(182, 186, 192);
+  font-size: 35px;
   text-align: center;
   position: relative;
   padding: 3px;
-  font-family: "Roboto", sans-serif;
-  background-color: rgb(228, 222, 222);
+  font-family: 'Roboto', sans-serif;
+  /* background-color: rgb(228, 222, 222); */
 }
 
 .button1 {

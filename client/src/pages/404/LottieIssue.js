@@ -37,7 +37,7 @@ const LottieIssue = () => {
       <h2
         style={{ 'text-align': 'center', position: 'relative', top: '100px' }}
       >
-        Em construção. Estamos trabalhando nisso
+        Estamos trabalhando nisso
       </h2>
       <Lottie options={defaultOptions} height={600} width={600} />
       <Popup toggle={toggle} />

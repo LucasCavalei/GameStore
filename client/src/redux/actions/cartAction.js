@@ -1,10 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   PURCHASE_SUCCESS,
   SET_CART,
   ADD_TO_CART,
   SET_SHOW_CART,
-} from "./actionTypes.js";
+} from './actionTypes.js';
 
 export const finalizarCompra =
   ({ cartItem, somaCart, user }) =>
@@ -27,29 +27,22 @@ export const finalizarCompra =
     console.log(orderData);
 
     axios
-      .post("/order", orderData, {
+      .post('/order', orderData, {
         headers: {
-          authorization: "Bearer " + user.token,
+          authorization: 'Bearer ' + user.token,
         },
       })
       .then((response) => {
-        console.log("sou response cartAction", response);
+        console.log('sou response cartAction', response);
         dispatch({
           type: PURCHASE_SUCCESS,
           payload: response.data,
         });
-        {
-          console.log("deu erto");
-        }
-
-        // {
-        //   console.log("sou o token headers no redux action", user.token);
-        // }
       })
       .catch((error) => {
         console.log(error);
         {
-          console.log("deu ruim", error);
+          console.log('deu ruim', error);
         }
       });
   };
