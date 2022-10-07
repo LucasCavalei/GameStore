@@ -10,8 +10,7 @@ function Popup({ toggle }) {
         <div className="popup-inner">
           <h2>
             {' '}
-            <KeyboardDoubleArrowLeftIcon /> <KeyboardDoubleArrowLeftIcon /> ir a
-            loja{' '}
+            <KeyboardDoubleArrowLeftIcon /> ir a loja{' '}
           </h2>
         </div>
       </Link>

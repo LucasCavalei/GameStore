@@ -20,7 +20,7 @@ const Footer = () => {
           <h2>Contato</h2>
         </Link>
         <Link style={{ textDecoration: 'none' }} to="/issue">
-          <h2>Duvidas</h2>
+          <h2>Suporte</h2>
         </Link>
       </div>
       <div className="footer-socialMedia">

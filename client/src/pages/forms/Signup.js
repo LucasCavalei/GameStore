@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useForm } from 'react-hook-form';
-import Lottie from 'react-lottie';
-
-import { Link } from 'react-router-dom';
 import { useDispatch, connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 import { createUser } from '../../redux/actions/userAction';
-// import loading from "../../assets/lotties/loading.json";
+import Lottie from 'react-lottie';
+import Popup from '../404/modal/Popup';
+import PropTypes from 'prop-types';
 import logSuccess from '../../assets/lotties/unlock.json';
+// import loading from "../../assets/lotties/loading.json";
 // import AlertForm from "./alerts/AlertForm";
 
 import './form.css';
@@ -24,6 +24,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
     isStopped: true,
     isPaused: false,
   });
+  const [toggle, setToggle] = useState(false);
 
   const loadingOptions = {
     loop: false,
@@ -42,6 +43,9 @@ const Signup = ({ isLogged, loading, user, error }) => {
     },
   };
   const dispatch = useDispatch();
+  const callPopup = () => {
+    setTimeout(() => setToggle(true), 2000);
+  };
 
   useEffect(() => {
     scrollToTop();
@@ -66,15 +70,18 @@ const Signup = ({ isLogged, loading, user, error }) => {
             transform: 'translate(-50%, -50%)',
           }}
           options={logUnlock}
-          height={200}
-          width={200}
+          height={125}
+          width={125}
           isStopped={logSuccessAnimation.isStopped}
           isPaused={logSuccessAnimation.isPaused}
         />
       ) : null}
+      {isLogged ? callPopup() : null}
+
+      <Popup toggle={toggle} />
+
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
-        {/* <h2>{user}</h2> */}
         <label>Nome: </label>
         <input type="text" {...register('name')} />
         <label> Email </label>

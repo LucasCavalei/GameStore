@@ -50,7 +50,7 @@ export const CompraEncerrada = ({ compra, user }) => {
       <div className="cart-final">
         <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
         <h5>Código da compra </h5>
-        <h4>{compra._id}</h4>
+        <h4>{compra}</h4>
         <h4>user</h4>
       </div>
     </div>

@@ -24,7 +24,6 @@ export const finalizarCompra =
       somaCart,
       user: user.userId,
     };
-    console.log(orderData);
 
     axios
       .post('/order', orderData, {
@@ -33,10 +32,10 @@ export const finalizarCompra =
         },
       })
       .then((response) => {
-        console.log('sou response cartAction', response);
+        const keyReponse = Object.keys(response.data);
         dispatch({
           type: PURCHASE_SUCCESS,
-          payload: response.data,
+          payload: keyReponse,
         });
       })
       .catch((error) => {

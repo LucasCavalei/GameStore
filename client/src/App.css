@@ -1,27 +1,18 @@
-
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
-body{
- 
+body {
   padding: 0;
   margin: 0;
-  background-color:rgb(228, 222, 222);
+  background-color: rgb(228, 222, 222);
 }
 
 .App {
-  border:14px solid red;
-
   text-align: center;
-
 }
-.app-class{
+.app-class {
   display: flex;
-  border:14px solid red;
-
+  border: 14px solid red;
 }
-
-
-
