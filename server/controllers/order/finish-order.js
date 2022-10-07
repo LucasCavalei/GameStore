@@ -6,18 +6,17 @@ const createOrderRepository = new CreateOrderRepository();
 class FinishOrder {
   async execute(httpRequest) {
     const { orderProducts, somaCart, user } = httpRequest.body;
-    console.log('Im controller finishorder ', orderProducts, somaCart, user);
 
-    console.log('chegou a rota', orderProducts, somaCart, user);
     const order = await createOrderRepository.createOrder({
       orderProducts,
       somaCart,
       user,
     });
-    console.log('order que voltou do repositoty', order);
+    const demo = Object.keys(order);
+    console.log('order que voltou do repositoty', order.insertedIds._id);
     return {
       statusCode: 200,
-      body: order,
+      body: demo,
     };
   }
 }

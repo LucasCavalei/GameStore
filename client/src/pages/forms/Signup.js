@@ -3,14 +3,12 @@ import { useDispatch, connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { createUser } from '../../redux/actions/userAction';
+import './form.css';
 import Lottie from 'react-lottie';
 import Popup from '../404/modal/Popup';
 import PropTypes from 'prop-types';
 import logSuccess from '../../assets/lotties/unlock.json';
-// import loading from "../../assets/lotties/loading.json";
-// import AlertForm from "./alerts/AlertForm";
-
-import './form.css';
+import { faker } from '@faker-js/faker';
 
 const Signup = ({ isLogged, loading, user, error }) => {
   // const [showLottie, setShowLottie] = useState(false);
@@ -42,6 +40,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
   const dispatch = useDispatch();
   const callPopup = () => {
     setTimeout(() => setToggle(true), 2000);
@@ -53,12 +52,13 @@ const Signup = ({ isLogged, loading, user, error }) => {
 
   const onSubmit = (e) => {
     const userData = {
-      name: e.name,
-      email: e.email,
-      password: e.password,
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
     };
     dispatch(createUser(userData));
   };
+
   return (
     <>
       {isLogged ? (
@@ -79,7 +79,6 @@ const Signup = ({ isLogged, loading, user, error }) => {
       {isLogged ? callPopup() : null}
 
       <Popup toggle={toggle} />
-
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
         <label>Nome: </label>

@@ -8,6 +8,7 @@ class createOrderRepository {
       somaCart,
       user,
     });
+    console.log('sou saveoOrders', savedOrders);
     return savedOrders;
   }
 }
