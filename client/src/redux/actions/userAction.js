@@ -11,18 +11,14 @@ import {
 import axios from 'axios';
 
 export const createUser = (userInfo) => (dispatch) => {
-  console.log('sou user info', userInfo);
   dispatch({ type: LOADING_USER });
   axios
     .post('/user/signup', userInfo, {})
     .then((response) => {
-      console.log('sou dado que retornou user action', response.data);
-
       dispatch({
         type: CREATE_USER_SUCCESS,
         payload: response.data,
       });
-      console.log('sou actionuser', response.data);
     })
     .catch((error) => {
       dispatch({
@@ -40,11 +36,6 @@ export const loginUser = (userData) => (dispatch) => {
   axios
     .post('/user/login', userData)
     .then((response) => {
-      console.log(
-        'sou LOGINuser response cart vindo do controller',
-        response.data
-      );
-
       dispatch({
         type: LOGIN_USER_SUCCESS,
         payload: response.data,

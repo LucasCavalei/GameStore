@@ -32,10 +32,9 @@ export const finalizarCompra =
         },
       })
       .then((response) => {
-        const keyReponse = Object.keys(response.data);
         dispatch({
           type: PURCHASE_SUCCESS,
-          payload: keyReponse,
+          payload: response.data,
         });
       })
       .catch((error) => {

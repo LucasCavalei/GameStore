@@ -45,12 +45,14 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
 };
 
 export const CompraEncerrada = ({ compra, user }) => {
+  // const codigoCompra = compra.insertedId.toString();
+
   return (
     <div>
       <div className="cart-final">
         <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
         <h5>Código da compra </h5>
-        {/* <h4>{compra.insertedIds._id}</h4> */}
+        <h4>{compra}</h4>
         <h4>user</h4>
       </div>
     </div>
