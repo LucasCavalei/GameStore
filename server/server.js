@@ -14,4 +14,4 @@ MongoHelper.connect(process.env.MONGO_URL, {
   useUnifiedTopology: true,
 })
   .then(console.log('database conectado'))
-  .catch((err) => console.log('falha ao conectar databse', err));
+  .catch((err) => console.log('falha ao conectar database', err));

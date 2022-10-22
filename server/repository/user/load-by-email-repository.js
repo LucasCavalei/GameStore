@@ -1,12 +1,12 @@
-import Authorization from '../../auth.js';
+import authorizationInstance from '../../auth.js';
 import MongoHelper from '../../helpers/mongo-helper.js';
-const authorization = new Authorization();
+// const authorization = new Authorization();
 
 class LoadUserByEmailRepository {
   async loadByEmail(email, password) {
     const userCollection = await MongoHelper.getCollection('users');
     const user = await userCollection.findOne({ email });
-    const userToken = await authorization.comparer(user, password);
+    const userToken = await authorizationInstance.comparer(user, password);
 
     const newUser = {
       token: userToken,
