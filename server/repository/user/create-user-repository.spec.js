@@ -32,32 +32,3 @@ describe('LoadUserByEmail Repository', () => {
     expect(user.token).toBeTruthy();
   });
 });
-// jest.mock('../../auth.js', () => ({
-//   createToken: jest.fn(() => 'token'),
-// }));
-
-// let userModel;
-// // const makeSut = () => {
-// //   return new CreateUserRepository();
-// // };
-
-// describe('LoadUserByEmail Repository', () => {
-//   // beforeAll(async () => {
-//   // await MongoHelper.connect(process.env.MONGO_URL);
-//   // userModel = await MongoHelper.getCollection('users');
-//   // beforeAll(() => {  //verificar se before all async eh usado como acima
-//   // });
-//   const fakeuser = {
-//     name: 'fakeuser',
-//     email: 'fakeuser@example.com',
-//     password: 'fakepassword',
-//   };
-
-//   test(' verificar se authenticacao eh mocada', () => {
-//     const criaDenovo = new CreateUserRepository();
-//     criaDenovo.createUser(fakeuser);
-//     expect(createToken()).toHaveBeenCalledTimes(1);
-//   });
-// });
-
-// -----------------------------------------------------
