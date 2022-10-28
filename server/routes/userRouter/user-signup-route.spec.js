@@ -1,7 +1,7 @@
 import userRouter from './user-route';
 import request from 'supertest';
-import MongoHelper from '../helpers/mongo-helper';
-import { app } from '../app.js';
+import MongoHelper from '../../helpers/mongo-helper';
+import { app } from '../../app.js';
 let userModel;
 
 describe('Should create user repository', () => {
@@ -18,8 +18,8 @@ describe('Should create user repository', () => {
 
   test('user-signup deve retonar status 200', async () => {
     const response = await request(app).post('/user/signup').send({
-      name: 'supertest7',
-      email: 'supertes7@21mail.com',
+      name: 'supertest',
+      email: 'supertest@21mail.com',
       password: 'hashed_password',
     });
     expect(response.status).toBe(200);

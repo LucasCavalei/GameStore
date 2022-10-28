@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import userRouter from './routes/user-route.js';
-import orderRouter from './routes/order-route.js';
+import userRouter from './routes/userRouter/user-route.js';
+import orderRouter from './routes/orderRoute/order-route.js';
 
 const app = express();
 app.use(express.json());

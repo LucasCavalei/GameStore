@@ -17,4 +17,4 @@ class FinishOrder {
     };
   }
 }
-export { FinishOrder };
+export default FinishOrder;

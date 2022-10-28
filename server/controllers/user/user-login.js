@@ -1,7 +1,7 @@
 import LoadUserByEmailRepository from '../../repository/user/load-by-email-repository.js';
 const loadUserByEmailRepository = new LoadUserByEmailRepository();
 
-export class Login {
+class Login {
   async execute(httpResquest) {
     const { email, password } = httpResquest.body;
 
@@ -24,3 +24,4 @@ export class Login {
     };
   }
 }
+export default Login;
