@@ -7,6 +7,8 @@ const orderRouter = express.Router();
 const finishOrder = new FinishOrder();
 // const authorization = new Authorization();
 
+// orderRouter.post('/', expressAdapter(finishOrder));
+
 orderRouter.post(
   '/',
   authorizationInstance.authorize,

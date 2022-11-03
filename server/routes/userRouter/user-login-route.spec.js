@@ -3,10 +3,10 @@ import MongoHelper from '../../helpers/mongo-helper';
 import { app } from '../../app.js';
 let userModel;
 
-describe('Should create user repository', () => {
+describe(' create user and then Login the same user', () => {
   beforeAll(async () => {
     MongoHelper.connect(process.env.MONGO_TEST_URL);
-    userModel = await MongoHelper.getCollection('users');
+    userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {
     await userModel.deleteMany();
@@ -14,18 +14,22 @@ describe('Should create user repository', () => {
   afterAll(async () => {
     await MongoHelper.disconnect();
   });
-
-  test('user-login deve retonar status 200', async () => {
+  test('Deve dar lucas', async () => {
+    let name = 'Lucas';
     await userModel.insertOne({
       name: 'supertest',
       email: 'supertest@21mail.com',
       password: 'hashed_password',
     });
+    expect(name).toBe('Lucas');
+  });
+  test('sdssssssdsda', async () => {
     const response = await request(app).post('/user/login').send({
       name: 'supertest',
       email: 'supertest@21mail.com',
       password: 'hashed_password',
     });
-    expect(response.status).toBe(200);
+    const { token } = response.body;
+    expect(token).toBeTruthy();
   });
 });

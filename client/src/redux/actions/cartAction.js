@@ -32,6 +32,9 @@ export const finalizarCompra =
         },
       })
       .then((response) => {
+        console.log(
+          'response past database in cartActin on order: ' + response.data
+        );
         dispatch({
           type: PURCHASE_SUCCESS,
           payload: response.data,

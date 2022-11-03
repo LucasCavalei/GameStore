@@ -6,9 +6,13 @@ dotenv.config();
 class Authorization {
   authorize(req, res, next) {
     const authorization = req.headers.authorization;
+    console.log(
+      's0000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaapu token no authorization do header',
+      authorization
+    );
+
     if (authorization) {
       const token = authorization.slice(7, authorization.length);
-
       jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
         if (err) {
           res.status(401).send({ message: 'Token invalido' });
@@ -18,7 +22,7 @@ class Authorization {
         }
       });
     } else {
-      res.status(401).send({ message: 'Sem Token' });
+      res.status(404).send({ message: 'Sem Token' });
     }
   }
   async comparer(user, password) {

@@ -1,27 +1,34 @@
-import { RuleTester } from 'eslint';
 import MongoHelper from '../../helpers/mongo-helper.js';
 import createOrderRepository from './create-order-repository.js';
-import { v4 as uuidv4 } from 'uuid';
+let userModel;
+let orderModel;
 
-const makeSut = () => {
+const makeOrderSut = () => {
   return new createOrderRepository();
 };
 
-describe("Should create order repository", () => {
-    
- beforeAll(() => {
-  MongoHelper.connect();
-});
-beforeEach(() => {
-    const orderCollection =  await MongoHelper.getCollection("orders");
-});
+describe('LoadUserByEmail Repository', () => {
+  beforeAll(async () => {
+    await MongoHelper.connect(process.env.MONGO_TEST_URL);
+    orderModel = await MongoHelper.getCollection('orders');
+  });
+  beforeEach(async () => {
+    await orderModel.deleteMany();
+  });
 
-test("should",()=>{
-const orderData = {
-  _id :uuidv4,
- }
-
-})
-
-
+  afterAll(async () => {
+    await MongoHelper.disconnect();
+  });
+  const fakeOrder = {
+    orderProducts: [1, 2, 3],
+    somaCart: 200,
+    user: 'userId',
+  };
+  test('createOrder need to be truthy', async () => {
+    const sut = makeOrderSut();
+    const order = await sut.createOrder({
+      fakeOrder,
+    });
+    expect(order).toBeTruthy();
+  });
 });
