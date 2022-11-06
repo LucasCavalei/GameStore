@@ -11,6 +11,7 @@ class LoadUserByEmailRepository {
     const newUser = {
       token: userToken,
       userId: user._id,
+      status: 200,
     };
     return newUser;
   }

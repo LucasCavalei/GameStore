@@ -1,4 +1,4 @@
-# EcommerceDesafio-Redux
+# GameStore
 
 Project made as a part of the a previous employment test project using Games Dummy data.  
  Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações como
