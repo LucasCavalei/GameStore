@@ -18,7 +18,7 @@ Desocoplei arquivos não por necessidade, mas afim de praticar.
 ### ℹ️ How to use
 
 clone this repository
-https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
+https://github.com/LucasCavalei/GameStore.git
 
 npm install
 then you can
@@ -32,3 +32,5 @@ npm start
 ### 📭 Contact
 
 Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
+
+![Uploading ezgif-1-d6ce86ecda.gif…]()
