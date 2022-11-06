@@ -33,6 +33,6 @@ npm start
 
 Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
 ![Uploading ezgif-1-d6ce86ecda.gif…]()
-![image description](path/in/repository/to/image.svg)
+![image description](./client/src/assets/previewProject.gif.svg)
 
-<img src="\client\src\assets\previewProject.gif" width="128"/>
+<img src="./client/src/assets/previewProject.gif" width="128"/>
