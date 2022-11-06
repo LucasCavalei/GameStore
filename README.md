@@ -26,7 +26,7 @@ npm start
 
 cd clinet
 npm install
-teh you can
+then you can
 npm start
 
 <img src="./client/src/assets/previewProject.gif" width="515"/>
