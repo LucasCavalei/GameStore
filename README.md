@@ -35,4 +35,4 @@ Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
 ![Uploading ezgif-1-d6ce86ecda.gif…]()
 ![image description](path/in/repository/to/image.svg)
 
-<img src="\client\src\assets\flickergames.jpg" width="128"/>
+<img src="\client\src\assets\previewProject.gif" width="128"/>
