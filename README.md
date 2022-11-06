@@ -33,5 +33,7 @@ npm start
 
 Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
 
+<img src="\client\src\assets\previewProject.gif" width="128"/>
+
 ![Uploading ezgif-1-d6ce86ecda.gif…]()
  
