@@ -29,7 +29,7 @@ npm install
 teh you can
 npm start
 
-<img src="./client/src/assets/previewProject.gif" width="428"/>
+<img src="./client/src/assets/previewProject.gif" width="515"/>
 
 ### 📭 Contact
 
