@@ -29,10 +29,8 @@ npm install
 teh you can
 npm start
 
+<img src="./client/src/assets/previewProject.gif" width="428"/>
+
 ### 📭 Contact
 
 Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
-![Uploading ezgif-1-d6ce86ecda.gif…]()
-![image description](./client/src/assets/previewProject.gif.svg)
-
-<img src="./client/src/assets/previewProject.gif" width="128"/>
