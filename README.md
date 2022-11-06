@@ -32,3 +32,7 @@ npm start
 ### 📭 Contact
 
 Lucas Rodrigues Cavaleiro lucas.oklp@gmail.com
+![Uploading ezgif-1-d6ce86ecda.gif…]()
+![image description](path/in/repository/to/image.svg)
+
+<img src="\client\src\assets\flickergames.jpg" width="128"/>

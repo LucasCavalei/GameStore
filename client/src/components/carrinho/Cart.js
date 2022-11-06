@@ -30,7 +30,7 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
             <p style={{ fontWeight: 'bold', color: 'white' }}>
               <h4>
                 {' '}
-                {item.qty} {item.name}&nbsp;&nbsp;{item.price}
+                {item.qty} {item.name}&nbsp;&nbsp;R${item.price}
               </h4>
             </p>
           </div>
