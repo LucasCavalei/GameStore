@@ -1,7 +1,7 @@
 # EcommerceDesafio-Redux
 
-Project made as a part of the a previous employment project test using Games Dummy data.  
- Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações como
+Project made as a part of my last employment test using Games Dummy data.  
+Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações como
 parte de um processo seletivo de um antigo teste de emprego.
 Desocoplei arquivos não por necessidade, mas afim de praticar.
 
