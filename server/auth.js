@@ -6,11 +6,6 @@ dotenv.config();
 class Authorization {
   authorize(req, res, next) {
     const authorization = req.headers.authorization;
-    console.log(
-      's0000000000000000000000000000000000000aaaaaaaaaaaaaaaaaaaaapu token no authorization do header',
-      authorization
-    );
-
     if (authorization) {
       const token = authorization.slice(7, authorization.length);
       jwt.verify(token, process.env.JWT_SECRET, (err, decode) => {
@@ -26,6 +21,7 @@ class Authorization {
     }
   }
   async comparer(user, password) {
+    console.log('sou user password', user.password);
     const isValid = await bcrypt.compare(password, user.password);
     if (isValid) {
       const acessToken = await this.createToken(user);
