@@ -22,12 +22,12 @@ https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 
 ### server:
 npm install
-npm start
+    npm start
 
 ### client
 cd clinet
-npm install
-npm start
+   npm install
+   npm start
 
 ### Running the tests
 
