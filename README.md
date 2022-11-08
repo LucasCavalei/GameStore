@@ -36,7 +36,7 @@ All test are in foder server/_ _testes_ _
  It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers 
 
-Preview
+- Preview:
 
 <img src="./client/src/assets/previewProject.gif" width="515"/>
 
