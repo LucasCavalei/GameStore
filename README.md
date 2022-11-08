@@ -24,7 +24,7 @@ https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 npm install / npm start
 
 ### client
-cd clinet
+cd client
    / npm install
 / npm start
 
