@@ -20,13 +20,13 @@ Desocoplei arquivos não por necessidade, mas afim de praticar.
 clone this repository
 https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 
+###server:
 npm install
-then you can
 npm start
 
+###client
 cd clinet
 npm install
-then you can
 npm start
 
 ### Running the tests
