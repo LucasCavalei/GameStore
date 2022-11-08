@@ -1,4 +1,4 @@
-# GameStore-Redux
+# GameStore
 
 Project made as a part of my last employment test using Games Dummy data.  
 Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações, como
@@ -28,6 +28,14 @@ cd clinet
 npm install
 then you can
 npm start
+
+### Running the tests
+
+All test are in foder server/__testes__ 
+check if routes are working with the proper user e purchaise payload
+using supertest and mathers 
+
+#### npm test
 
 <img src="./client/src/assets/previewProject.gif" width="515"/>
 
