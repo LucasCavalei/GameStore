@@ -32,7 +32,7 @@ npm start
 ### Running the tests
 
 npm test
-All test are in foder server/_ _testes_ _ 
+all tests are in foder server/_ _testes_ _ 
  It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers 
 
