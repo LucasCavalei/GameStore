@@ -20,18 +20,18 @@ Desocoplei arquivos não por necessidade, mas afim de praticar.
 clone this repository
 https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 
-###server:
+### server:
 npm install
 npm start
 
-###client
+### client
 cd clinet
 npm install
 npm start
 
 ### Running the tests
 
-All test are in foder server/__testes__ 
+All test are in foder server/_ _testes_ _ 
 check if routes are working with the proper user e purchaise payload
 using supertest and mathers 
 
