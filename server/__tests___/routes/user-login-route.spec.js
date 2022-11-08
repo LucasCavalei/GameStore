@@ -1,11 +1,12 @@
 import request from 'supertest';
+import bcrypt from 'bcrypt';
 import MongoHelper from '../../helpers/mongo-helper';
 import { app } from '../../app.js';
 let userModel;
 
 describe('create a user THEN login this user', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URL);
+    await MongoHelper.connect(process.env.MONGO_TEST_URI);
     userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {
@@ -15,20 +16,26 @@ describe('create a user THEN login this user', () => {
     await MongoHelper.disconnect();
   });
 
-  test('create a user with userModel then login /user/login with suertest', async () => {
+  test('should return token true and status 200', async () => {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash('hashed_password', salt);
     await userModel.insertOne({
       name: 'supertest',
-      email: 'supertest@21mail.com',
-      password: 'hashed_password',
+      email: 'lucas@21mail.com',
+      password: hashedPassword,
     });
-    //Its possible to create an existing user beacuse it bypass repositories and its dependecies
+    userModel
+      .find()
+      .toArray()
+      .then((res) => console.log(res));
+    //Its possible to create an existing user because it bypass repositories and its dependecies
     const response = await request(app).post('/user/login').send({
       name: 'supertest',
-      email: 'supertest@21mail.com',
+      email: 'lucas@21mail.com',
       password: 'hashed_password',
     });
     const { token } = response.body;
     expect(response.statusCode).toEqual(200);
-    expect(token).toBeTruthy();
+    expect(token).toBeTruthy;
   });
 });

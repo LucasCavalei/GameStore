@@ -21,7 +21,6 @@ class Authorization {
     }
   }
   async comparer(user, password) {
-    console.log('sou user password', user.password);
     const isValid = await bcrypt.compare(password, user.password);
     if (isValid) {
       const acessToken = await this.createToken(user);

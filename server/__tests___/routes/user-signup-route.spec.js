@@ -1,11 +1,14 @@
 import request from 'supertest';
 import MongoHelper from '../../helpers/mongo-helper';
+import dotenv from 'dotenv';
+dotenv.config();
+
 import { app } from '../../app.js';
 let userModel;
 
 describe('Should create user by supertest in user-routes', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URL);
+    MongoHelper.connect(process.env.MONGO_TEST_URI);
     userModel = await MongoHelper.getCollection('users');
   });
   beforeEach(async () => {
@@ -17,7 +20,7 @@ describe('Should create user by supertest in user-routes', () => {
   test('user-signup should status 200', async () => {
     const response = await request(app).post('/user/signup').send({
       name: 'supertest',
-      email: 'supertest@21mail.com',
+      email: 'supertest2@21mail.com',
       password: 'hashed_password',
     });
     expect(response.statusCode).toBe(200);
