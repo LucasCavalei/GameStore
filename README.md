@@ -32,7 +32,7 @@ cd client
 ### Running the tests
 
 npm test
-all tests are in foder server/_ _testes_ _ 
+all tests are in foder server/__ _testes__ _ 
  It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers 
 
