@@ -8,7 +8,7 @@ Front end fez se o uso de Redux como state managment.
 
 ### 🛰️ Built With
 
-- JavaScript
+- JavaScript ES6
 - Node.js
 - React JS
 - Redux
