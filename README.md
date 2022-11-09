@@ -14,6 +14,12 @@ Desocoplei arquivos não por necessidade, mas afim de praticar.
 - MongoDb
 - JWT Authentication
 - Jest matchers and supertest
+- 
+
+### 😉 adicional information
+The backend was first created using mogoose library, after substituted to pure Mongodb.
+The main folder structure are Routes, controllers, respository includig express-Adapter as design Patter.
+The client side was implemented using Redux
 
 ### ℹ️ How to use
 
