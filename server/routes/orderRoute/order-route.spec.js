@@ -6,13 +6,12 @@ let orderModel;
 
 describe('Should create order', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URI);
+    MongoHelper.connect(process.env.MONGO_TEST_URL);
     userModel = await MongoHelper.getCollection('user');
     const responseDelete = await userModel.deleteMany();
     console.log('sou response deletemany', responseDelete);
   });
   // beforeEach(async () => {
-  //   await userModel.deleteMany();
   // });
   afterAll(async () => {
     await MongoHelper.disconnect();
@@ -38,7 +37,6 @@ describe('Should create order', () => {
       email: 'supertest3@21mail.com',
       password: 'hashed_password',
     });
-    console.log('ver response signup user', response.body);
     const { token } = response.body;
     console.log('soh pra ver ve o token esta pronto', token);
     const fakeOrder = {

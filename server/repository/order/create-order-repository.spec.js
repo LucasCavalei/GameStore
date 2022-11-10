@@ -7,7 +7,7 @@ const makeOrderSut = () => {
   return new createOrderRepository();
 };
 
-describe('must create a order in repositoty/order create-order-repository', () => {
+describe('LoadUserByEmail Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_TEST_URL);
     orderModel = await MongoHelper.getCollection('orders');

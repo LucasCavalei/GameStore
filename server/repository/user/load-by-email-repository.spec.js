@@ -1,12 +1,15 @@
 import MongoHelper from '../../helpers/mongo-helper.js';
+
+// import { LoadByEmailRepository } from './load-by-email-repository.js';
 import LoadUserByEmailRepository from './load-by-email-repository.js';
+
 let userModel;
 
 const makeSut = () => {
   return new LoadUserByEmailRepository();
 };
 
-describe('check if repository return user by its email', () => {
+describe('LoadUserByEmail Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_URL);
     userModel = await MongoHelper.getCollection('users');
@@ -38,5 +41,6 @@ describe('check if repository return user by its email', () => {
     const fakeUserId = fakeUser.insertedId.toString();
     expect(userId).toEqual(fakeUserId);
   });
-  //more about ops[0]: https://stackoverflow.com/questions/40766654/node-js-mongodb-insert-one-and-return-the-newly-inserted-document
+
+  //sobre ops[0]: https://stackoverflow.com/questions/40766654/node-js-mongodb-insert-one-and-return-the-newly-inserted-document
 });

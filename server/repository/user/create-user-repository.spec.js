@@ -6,7 +6,7 @@ const makeSut = () => {
   return new CreateUserRepository();
 };
 
-describe('Connect no databse by mongoHelper then create a user', () => {
+describe('LoadUserByEmail Repository', () => {
   beforeAll(async () => {
     await MongoHelper.connect(process.env.MONGO_TEST_URL);
     userModel = await MongoHelper.getCollection('users');
@@ -19,11 +19,11 @@ describe('Connect no databse by mongoHelper then create a user', () => {
   afterAll(async () => {
     await MongoHelper.disconnect();
   });
-  test('should token be valid', async () => {
+  test('whaetver', async () => {
     const sut = makeSut();
     const user = await sut.createUser({
-      name: 'any_name',
-      email: 'any_email@mail.om',
+      name: 'any_junuior8',
+      email: 'valid_junior8@mail.om',
       password: 'hashed_password',
     });
     expect(user.token).toBeTruthy();

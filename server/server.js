@@ -9,7 +9,7 @@ app.listen(port, () => {
   console.log('8888 port connectado');
 });
 
-MongoHelper.connect(process.env.MONGO_URI, {
+MongoHelper.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

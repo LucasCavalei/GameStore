@@ -52,9 +52,9 @@ const Signup = ({ isLogged, loading, user, error }) => {
 
   const onSubmit = (e) => {
     const userData = {
-      name: e.name,
-      email: e.email,
-      password: e.password,
+      name: faker.internet.userName(),
+      email: faker.internet.email(),
+      password: faker.internet.password(),
     };
     dispatch(createUser(userData));
   };

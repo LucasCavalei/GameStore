@@ -69,7 +69,7 @@ const Login = ({ user, isLogged, error }) => {
         <label> Email </label>
         <input type="text" {...register('email')} />
         <label> Senha </label>
-        <input type="password" {...register('password')} />
+        <input type="text" {...register('password')} />
         <button class="button button1" type="submit">
           Enviar
         </button>

@@ -19,6 +19,17 @@ class CreateUserRepository {
       userId: savedUser.insertedId,
     };
     return newUser;
+    // return await this.generateToken(savedUser);
   }
+
+  // async generateToken(savedUser) {
+  //   // const authorization = new Authorization();
+  //   const userToken = await authorizationInstance.createToken(savedUser);
+  //   const newUser = {
+  //     token: userToken,
+  //     userId: savedUser.insertedId,
+  //   };
+  //   return newUser;
+  // }
 }
 export default CreateUserRepository;
