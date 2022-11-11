@@ -45,19 +45,27 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
 };
 
 export const CompraEncerrada = ({ compra, user }) => {
+  // const codigoCompra = compra.insertedId.toString();
+
   return (
     <div>
-      <div className="cart-final">
-        <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
-        <h5>Código da compra </h5>
-        <h4>{compra}</h4>
-        <h4>user</h4>
-      </div>
+      {user.isLogged ? (
+        <div className="cart-final">
+          <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
+          <h5>Código da compra </h5>
+          <h4>{compra}</h4>
+          <h4>user</h4>
+        </div>
+      ) : (
+        <h2>Obrigado pela preferencia</h2>
+      )}
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
+  console.log('sou user reducer no cart.js', state.userReducer);
+
   return {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,
