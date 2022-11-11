@@ -45,8 +45,6 @@ const Cart = ({ cartItems, user, compra, compraSuccess }) => {
 };
 
 export const CompraEncerrada = ({ compra, user }) => {
-  // const codigoCompra = compra.insertedId.toString();
-
   return (
     <div>
       <div className="cart-final">

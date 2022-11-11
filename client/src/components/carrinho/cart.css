@@ -14,7 +14,6 @@
 
 p {
   padding: 1px;
-  /* background-color: rgb(228, 222, 222); */
   width: 100%;
   background: transparent;
 }
@@ -29,21 +28,18 @@ p {
 }
 .cart-container h2,
 h3 {
-  /* color: red; */
   color: rgb(132, 123, 123);
-  border-bottom: 2px solid rgb(182, 186, 192);
   font-size: 35px;
   text-align: center;
   position: relative;
   padding: 3px;
   font-family: 'Roboto', sans-serif;
-  /* background-color: rgb(228, 222, 222); */
 }
 .cart-container h4 {
   color: rgb(206, 210, 218);
 }
 .button1 {
-  background-color: #3e70aa; /* Green */
+  background-color: #3e70aa;
   border: none;
   color: white;
   padding: 10px 22px;

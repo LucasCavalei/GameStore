@@ -4,6 +4,7 @@ import { connect, useDispatch } from 'react-redux';
 import { FaShoppingCart } from 'react-icons/fa';
 import { Tooltip } from '@mui/material';
 import { GrUserNew } from 'react-icons/gr';
+import { IoLogOut } from 'react-icons/io5';
 import { IoMdAppstore } from 'react-icons/io';
 import { LogOut } from '../../redux/actions/userAction';
 import Cart from '../carrinho/Cart';
@@ -48,7 +49,7 @@ const Sidenav = ({ showCart, isLogged, user }) => {
           </Tooltip>
         ) : (
           <Tooltip title="sair">
-            <button onClick={() => handleLogOut()}>Sair</button>
+            <IoLogOut onClick={() => handleLogOut()} size={50} />
           </Tooltip>
         )}
       </div>
@@ -59,6 +60,7 @@ const Sidenav = ({ showCart, isLogged, user }) => {
   );
 };
 const mapStateToProps = (state) => {
+  console.log('sou user reducer', state.userReducer.user);
   return {
     showCart: state.cartReducer.showCart,
     user: state.userReducer.user,
