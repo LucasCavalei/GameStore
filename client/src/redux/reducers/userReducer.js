@@ -4,9 +4,8 @@ import {
   LOGIN_USER_SUCCESS,
   LOG_OUT_USER,
   LOADING_USER,
-} from "../actions/actionTypes";
+} from '../actions/actionTypes';
 
-console.log("object");
 const initialState = {
   user: {},
   isLogged: false,

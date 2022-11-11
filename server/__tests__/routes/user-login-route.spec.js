@@ -24,10 +24,7 @@ describe('create a user THEN login this user', () => {
       email: 'lucas@21mail.com',
       password: hashedPassword,
     });
-    userModel
-      .find()
-      .toArray()
-      .then((res) => console.log(res));
+
     //Its possible to create an existing user because it bypass repositories and its dependecies
     const response = await request(app).post('/user/login').send({
       name: 'supertest',

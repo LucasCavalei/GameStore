@@ -24,14 +24,3 @@ describe('Should create user repository', () => {
     expect(response.statusCode).toBe(200);
   });
 });
-
-//   test('user-signup deve retonar status 200', async () => {
-//     const response = await request(app).post('/user/signup').send({
-//       name: 'supertest',
-//       email: 'supertest@21mail.com',
-//       password: 'hashed_password',
-//     });
-//     console.log('respjnse in user-signup-spec', response.text);
-//     expect(response.status).toBe(200);
-//   });
-// });

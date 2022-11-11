@@ -7,9 +7,7 @@ import { GrUserNew } from 'react-icons/gr';
 import { IoLogOut } from 'react-icons/io5';
 import { IoMdAppstore } from 'react-icons/io';
 import { LogOut } from '../../redux/actions/userAction';
-import Cart from '../carrinho/Cart';
-// import Tippy from '@tippyjs/react';
-// import 'tippy.js/dist/tippy.css';
+import Cart from '../cart/Cart';
 import './sidenav.css';
 import { SET_SHOW_CART } from '../../redux/actions/actionTypes';
 
@@ -60,7 +58,6 @@ const Sidenav = ({ showCart, isLogged, user }) => {
   );
 };
 const mapStateToProps = (state) => {
-  console.log('sou user reducer', state.userReducer.user);
   return {
     showCart: state.cartReducer.showCart,
     user: state.userReducer.user,

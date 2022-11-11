@@ -1,18 +1,9 @@
 import axios from 'axios';
-import {
-  PURCHASE_SUCCESS,
-  SET_CART,
-  ADD_TO_CART,
-  SET_SHOW_CART,
-} from './actionTypes.js';
+import { PURCHASE_SUCCESS, ADD_TO_CART } from './actionTypes.js';
 
 export const finalizarCompra =
   ({ cartItem, somaCart, user }) =>
   (dispatch) => {
-    // const { userId, token } = user;
-
-    // console.log("somaCart", somaCart, "user", userId);
-
     const orderProducts = cartItem.map((item) => ({
       id: item.id,
       name: item.name,
