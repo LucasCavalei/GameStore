@@ -1,14 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
-import { useDispatch } from "react-redux";
-import { ADD_TO_CART, SET_SHOW_CART } from "../../redux/actions/actionTypes";
+import React from 'react';
+import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { ADD_TO_CART, SET_SHOW_CART } from '../../redux/actions/actionTypes';
 
 function Produto({ product, showCart }) {
   const dispatch = useDispatch();
   const handleAddToCart = (product) => {
     dispatch({ type: ADD_TO_CART, payload: product });
 
-    // toggle de mostrar e esconder carrinho de compras {
+    // toggle show/hide cart pushchase
     !showCart && dispatch({ type: SET_SHOW_CART, payload: !showCart });
   };
 
@@ -17,7 +17,7 @@ function Produto({ product, showCart }) {
       <img
         src={product.image}
         style={{
-          maxWidth: "140px",
+          maxWidth: '140px',
         }}
         alt="produto"
       />

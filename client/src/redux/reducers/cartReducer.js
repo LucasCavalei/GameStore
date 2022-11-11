@@ -3,6 +3,7 @@ import {
   PURCHASE_SUCCESS,
   SET_SHOW_CART,
   ADD_TO_CART,
+  SET_CART_BUTTON,
 } from '../actions/actionTypes.js';
 
 const initState = {
@@ -10,6 +11,7 @@ const initState = {
   compra: {},
   success: false,
   showCart: false,
+  cartButton: false,
 };
 
 export const cartReducer = (state = initState, action) => {
@@ -41,6 +43,12 @@ export const cartReducer = (state = initState, action) => {
       return {
         ...state,
         showCart: !state.showCart,
+      };
+    case SET_CART_BUTTON:
+      // toggle show/hide finishOrder button in Cart.js'
+      return {
+        ...state,
+        cartButton: !state.cartButton,
       };
     default:
       return state;

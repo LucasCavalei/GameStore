@@ -20,6 +20,7 @@ const Sidenav = ({ showCart, isLogged, user }) => {
 
   const handleLogOut = () => {
     dispatch(LogOut());
+    showCartContainer(); // hide the cart by click in handleLogOut
   };
   return (
     <>
