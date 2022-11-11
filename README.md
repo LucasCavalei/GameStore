@@ -1,13 +1,14 @@
 # GameStore
 
-Project made as a part of the a previous employment test project using Games Dummy data.  
- Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações como
+Project made as a part of my last employment test using Games Dummy data.  
+Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações, como
 parte de um processo seletivo de um antigo teste de emprego.
-Desocoplei arquivos não por necessidade, mas afim de praticar.
+Beckend com suas pastas e dependencias bem desacoplados e 
+Front end fez se o uso de Redux como state managment.
 
 ### 🛰️ Built With
 
-- JavaScript
+- JavaScript ES6
 - Node.js
 - React JS
 - Redux
@@ -20,16 +21,29 @@ Desocoplei arquivos não por necessidade, mas afim de praticar.
 clone this repository
 https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 
-npm install
-then you can
-npm start
+### server:
+npm install / npm start
 
-cd clinet
-npm install
-teh you can
-npm start
+### client
+cd client
+   / npm install
+/ npm start
+
+### Running the tests
+
+npm test
+all tests are in foder server/__ _tests___ 
+ It checks if routes are working with the proper user end purchaise payload
+using supertest and mathers 
+
+- Preview:
 
 <img src="./client/src/assets/previewProject.gif" width="515"/>
+
+### 😉 Adicional information
+The backend was first created using mogoose library, after substituted to pure Mongodb.
+The main folder structure are Routes, controllers, respository includig express-Adapter as design Patter.
+The client side was implemented using Redux
 
 ### 📭 Contact
 
