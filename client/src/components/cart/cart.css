@@ -1,15 +1,50 @@
+@property --rotate {
+  syntax: '<angle>';
+  initial-value: 132deg;
+  inherits: false;
+}
+
 .cart-container {
-  display: flex;
-  flex-direction: column;
+  background: #191c29;
   width: 110%;
   height: auto;
-  max-width: 600px;
-  padding-top: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 0px 10px;
-  z-index: 20;
-  padding: 20px;
-  background-image: linear-gradient(to top, #2d2d2e 100%, #1c1e20 0%);
+  padding: 3px;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 1em;
+  color: rgb(88 199 250 / 0%);
+  cursor: pointer;
+}
+
+.cart-container::before {
+  content: '';
+  width: 100%;
+  height: 103%;
+  border-radius: 8px;
+  background-image: linear-gradient(
+    var(--rotate),
+    #3e70aa 33%,
+    rgb(110, 109, 109)
+  );
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  100% {
+    --rotate: 360deg;
+  }
 }
 
 p {
@@ -20,12 +55,14 @@ p {
 .cart-item h2 {
   font-variant-numeric: slashed-zero;
 }
+
 .cart-final,
 .cart-final.h5 {
   padding: 1px;
   background-color: rgb(30, 146, 65);
   width: 100%;
 }
+
 .cart-container h2,
 h3 {
   color: rgb(132, 123, 123);
