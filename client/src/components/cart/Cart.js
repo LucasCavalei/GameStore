@@ -11,6 +11,7 @@ const Cart = ({
   compra,
   compraSuccess,
   showCart,
+  isLogged,
   cartButton,
 }) => {
   const dispatch = useDispatch();
@@ -29,6 +30,19 @@ const Cart = ({
     dispatch(finalizarCompra(novaCompra));
     dispatch({ type: SET_CART_BUTTON });
   };
+  const buttonSwitch = (isLogged, cartButton) => {
+    switch (true) {
+      case isLogged && cartButton:
+        return 'Obrigado Pela preferencia';
+      case !isLogged:
+        return 'usuario precisa estar logado';
+      case isLogged:
+        return 'Finalizar compra';
+      default:
+        return 'foo';
+    }
+  };
+
   return (
     <div className="cart-container">
       <h3>{somaCart == 0 ? 'carrinho vazio' : 'R$' + somaCart}</h3>
@@ -48,12 +62,13 @@ const Cart = ({
       )}
       <>
         {' '}
-        {!cartButton ? (
+        {user || !cartButton ? (
           <button
             class="button button1"
             onClick={() => handleFinalizarCompra()}
           >
-            {user ? 'Finalizar compra' : 'usuario precisa estar logado'}
+            {buttonSwitch(isLogged, cartButton)}
+            {/* {isLogged ? 'Finalizar compra' : 'usuario precisa estar logado'} */}
           </button>
         ) : null}
       </>
@@ -62,7 +77,6 @@ const Cart = ({
 };
 
 export const CompraEncerrada = ({ compra, user }) => {
-  // const codigoCompra = compra.insertedId.toString();
   return (
     <div>
       {user ? (
@@ -82,11 +96,15 @@ export const CompraEncerrada = ({ compra, user }) => {
 const mapStateToProps = (state) => {
   console.log('sou user reducer no cart.js', state.userReducer);
   console.log('sou shhhhhhowCART', state.cartReducer.showCart);
+  console.log('sou is logged (button)', state.userReducer.isLogged);
+  console.log('sou cartButton (button)', state.cartReducer.cartButton);
 
   return {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,
     user: state.userReducer.user,
+    isLogged: state.userReducer.isLogged,
+
     compra: state.cartReducer.compra,
     cartButton: state.cartReducer.cartButton,
   };
