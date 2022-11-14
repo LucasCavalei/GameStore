@@ -15,6 +15,8 @@ Front end fez se o uso de Redux como state managment.
 - MongoDb
 - JWT Authentication
 - Jest matchers and supertest
+- LottieFiles
+- ToolTip
 
 ### ℹ️ How to use
 
