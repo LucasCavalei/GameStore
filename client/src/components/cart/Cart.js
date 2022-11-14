@@ -32,10 +32,10 @@ const Cart = ({
   };
   const buttonSwitch = (isLogged, cartButton) => {
     switch (true) {
-      case isLogged && cartButton:
-        return 'Obrigado Pela preferencia';
       case !isLogged:
         return 'usuario precisa estar logado';
+      case isLogged && cartButton:
+        return 'Obrigado Pela preferencia';
       case isLogged:
         return 'Finalizar compra';
       default:
@@ -94,11 +94,6 @@ export const CompraEncerrada = ({ compra, user }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log('sou user reducer no cart.js', state.userReducer);
-  console.log('sou shhhhhhowCART', state.cartReducer.showCart);
-  console.log('sou is logged (button)', state.userReducer.isLogged);
-  console.log('sou cartButton (button)', state.cartReducer.cartButton);
-
   return {
     cartItems: state.cartReducer.cartProducts,
     compraSuccess: state.cartReducer.success,

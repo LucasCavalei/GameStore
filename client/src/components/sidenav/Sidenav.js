@@ -9,7 +9,10 @@ import { IoMdAppstore } from 'react-icons/io';
 import { LogOut } from '../../redux/actions/userAction';
 import Cart from '../cart/Cart';
 import './sidenav.css';
-import { SET_SHOW_CART } from '../../redux/actions/actionTypes';
+import {
+  SET_SHOW_CART,
+  CLEAN_PRODUCTS_ARRAY,
+} from '../../redux/actions/actionTypes';
 
 const Sidenav = ({ showCart, isLogged, user }) => {
   const dispatch = useDispatch();
@@ -19,8 +22,9 @@ const Sidenav = ({ showCart, isLogged, user }) => {
   };
 
   const handleLogOut = () => {
-    dispatch(LogOut());
-    showCartContainer(); // hide the cart by click in handleLogOut
+    dispatch(LogOut()); // It cleans user data in userReducer
+    dispatch({ type: CLEAN_PRODUCTS_ARRAY }); // It cleans cart products array
+    showCartContainer(); // It hides the cart by click in handleLogOut
   };
   return (
     <>
