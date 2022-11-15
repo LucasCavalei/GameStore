@@ -1,16 +1,14 @@
-.header-container{
-    display: flex;
-    height: 350px;
-    width: 100%;
+.header-container {
+  display: flex;
+  justify-content: center;
+  height: 350px;
+  width: 100%;
 }
 @media screen and (max-width: 1300px) {
- .logo-bg{
-     display: none
- }
- .header-container{
+  .logo-bg {
+    display: none;
+  }
+  .header-container {
     height: 0px;
+  }
 }
-}
-
-
- 

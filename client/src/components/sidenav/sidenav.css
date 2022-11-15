@@ -1,21 +1,20 @@
-
-.sidenav{
+.cart-sidenav {
   width: 420px;
   height: 95vh;
   padding: 0 30px;
-  top:100px;
+  top: 100px;
   right: -100%;
-  transition: all 0.3s; 
-  position:absolute;
+  transition: all 0.3s;
+  position: absolute;
   float: right;
 }
 
-.sidenav.active{
+.cart-sidenav.active {
   right: 0px;
   position: absolute;
   float: right;
-  right: 130px;
-  z-index:10;
+  right: 118px;
+  z-index: 10;
   height: fit-content;
 }
 
@@ -24,9 +23,9 @@
   width: 100px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly ;
+  justify-content: space-evenly;
   position: absolute;
-  float:righ;
+  float: righ;
   right: 0px;
-  top:40px;
+  top: 40px;
 }

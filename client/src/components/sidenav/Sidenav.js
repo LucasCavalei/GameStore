@@ -56,7 +56,7 @@ const Sidenav = ({ showCart, isLogged, user }) => {
           </Tooltip>
         )}
       </div>
-      <nav className={showCart ? 'sidenav active' : 'sidenav'}>
+      <nav className={showCart ? 'cart-sidenav active' : 'cart-sidenav'}>
         <Cart />
       </nav>
     </>
