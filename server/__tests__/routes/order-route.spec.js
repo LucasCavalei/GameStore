@@ -5,7 +5,7 @@ let userModel;
 
 describe('Should create order', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URI);
+    MongoHelper.connect(process.env.MONGO_TEST_URL);
     userModel = await MongoHelper.getCollection('user');
     await userModel.deleteMany();
   });

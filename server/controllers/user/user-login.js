@@ -4,7 +4,6 @@ const loadUserByEmailRepository = new LoadUserByEmailRepository();
 class Login {
   async execute(httpResquest) {
     const { email, password } = httpResquest.body;
-
     if (!email || !password) {
       return {
         statusCode: 400,

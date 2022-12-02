@@ -4,7 +4,7 @@ import MongoHelper from '../../helpers/mongo-helper.js';
 
 class LoadUserByEmailRepository {
   async loadByEmail(email, password) {
-    const userCollection = await MongoHelper.getCollection('users');
+    const userCollection = await MongoHelper.getCollection('user');
     const user = await userCollection.findOne({ email });
     const userToken = await authorizationInstance.comparer(user, password);
 
