@@ -23,7 +23,7 @@ describe('Should create user by supertest in user-routes', () => {
     const hashedPassword = await bcrypt.hash('hashed_password', salt);
     const response = await request(app).post('/user/signup').send({
       name: 'supertest',
-      email: 'lucas1@21mail.com',
+      email: 'lucas@21mail.com',
       password: hashedPassword,
     });
     expect(response.statusCode).toBe(200);

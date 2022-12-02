@@ -15,7 +15,7 @@ class LoadUserByEmailRepository {
     return newUser;
   }
   async findUser(email) {
-    const userCollection = await MongoHelper.getCollection('users');
+    const userCollection = await MongoHelper.getCollection('user');
     const user = await userCollection.findOne({ email });
     return user;
   }
