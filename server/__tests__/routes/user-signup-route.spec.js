@@ -1,5 +1,6 @@
 import request from 'supertest';
 import MongoHelper from '../../helpers/mongo-helper';
+import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -8,7 +9,7 @@ let userModel;
 
 describe('Should create user by supertest in user-routes', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URI);
+    MongoHelper.connect(process.env.MONGO_TEST_URL);
     userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {
@@ -18,10 +19,12 @@ describe('Should create user by supertest in user-routes', () => {
     await MongoHelper.disconnect();
   });
   test('user-signup should status 200', async () => {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash('hashed_password', salt);
     const response = await request(app).post('/user/signup').send({
       name: 'supertest',
-      email: 'supertest2@21mail.com',
-      password: 'hashed_password',
+      email: 'lucas@21mail.com',
+      password: hashedPassword,
     });
     expect(response.statusCode).toBe(200);
   });

@@ -6,7 +6,7 @@ let userModel;
 
 describe('create a user THEN login this user', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_TEST_URI);
+    await MongoHelper.connect(process.env.MONGO_TEST_URL);
     userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {
@@ -29,7 +29,7 @@ describe('create a user THEN login this user', () => {
     const response = await request(app).post('/user/login').send({
       name: 'supertest',
       email: 'lucas@21mail.com',
-      password: 'hashed_password',
+      password: hashedPassword,
     });
     const { token } = response.body;
     expect(response.statusCode).toEqual(200);

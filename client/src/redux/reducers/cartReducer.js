@@ -4,6 +4,8 @@ import {
   SET_SHOW_CART,
   ADD_TO_CART,
   SET_CART_BUTTON,
+  LOG_OUT_USER,
+  CLEAN_PRODUCTS_ARRAY,
 } from '../actions/actionTypes.js';
 
 const initState = {
@@ -32,6 +34,12 @@ export const cartReducer = (state = initState, action) => {
           cartProducts: [...state.cartProducts, { ...product, qty: 1 }],
         };
       }
+    case CLEAN_PRODUCTS_ARRAY:
+      return {
+        ...state,
+        cartProducts: [],
+      };
+
     case CART_REQUEST:
       return {
         ...state,
@@ -49,6 +57,12 @@ export const cartReducer = (state = initState, action) => {
       return {
         ...state,
         cartButton: !state.cartButton,
+      };
+    case LOG_OUT_USER:
+      return {
+        ...state,
+        compra: {},
+        success: false,
       };
     default:
       return state;

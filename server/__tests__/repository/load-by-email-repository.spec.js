@@ -8,7 +8,7 @@ const makeSut = () => {
 
 describe('check if repository return user by its email', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_TEST_URI, {
+    await MongoHelper.connect(process.env.MONGO_TEST_URL, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
