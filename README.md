@@ -38,10 +38,6 @@ all tests are in foder server/__ _tests___
  It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers 
 
-- Preview:
-
-<img src="./client/src/assets/previewProject.gif" width="515"/>
-
 ### 😉 Adicional information
 The backend was first created using mogoose library, after substituted to pure Mongodb.
 The main folder structure are Routes, controllers, respository includig express-Adapter as design Patter.
