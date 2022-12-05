@@ -35,5 +35,4 @@ class Authorization {
     return token;
   }
 }
-const authorizationInstance = new Authorization();
-export default authorizationInstance;
+export default Authorization;
