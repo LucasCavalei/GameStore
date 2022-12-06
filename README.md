@@ -40,9 +40,6 @@ all tests are in foder server/** _tests_**
 It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers
 
-# <<<<<<< HEAD
-
-> > > > > > > 49155a4655aba0a9e13ac19b890ab4a7cc69d751
 
 ### 😉 Adicional information
 
