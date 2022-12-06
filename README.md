@@ -3,7 +3,7 @@
 Project made as a part of my last employment test using Games Dummy data.  
 Nesse projeto teste foi me passado um Dummy data contendo fotos de jogos e suas informações, como
 parte de um processo seletivo de um antigo teste de emprego.
-Beckend com suas pastas e dependencias bem desacoplados e 
+Beckend com suas pastas e dependencias bem desacoplados e
 Front end fez se o uso de Redux como state managment.
 
 ### 🛰️ Built With
@@ -24,21 +24,28 @@ clone this repository
 https://github.com/LucasCavalei/EcommerceDesafio-Redux.git
 
 ### server:
+
 npm install / npm start
 
 ### client
+
 cd client
-   / npm install
+/ npm install
 / npm start
 
 ### Running the tests
 
 npm test
-all tests are in foder server/__ _tests___ 
- It checks if routes are working with the proper user end purchaise payload
-using supertest and mathers 
+all tests are in foder server/** _tests_**
+It checks if routes are working with the proper user end purchaise payload
+using supertest and mathers
+
+# <<<<<<< HEAD
+
+> > > > > > > 49155a4655aba0a9e13ac19b890ab4a7cc69d751
 
 ### 😉 Adicional information
+
 The backend was first created using mogoose library, after substituted to pure Mongodb.
 The main folder structure are Routes, controllers, respository includig express-Adapter as design Patter.
 The client side was implemented using Redux
