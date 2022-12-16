@@ -18,7 +18,7 @@ const MongoHelper = {
     try {
       await this.client.disconnect();
     } catch (err) {
-      console.log('nao pode desconectar', err);
+      throw new Error('Não pode desconectar', err);
     }
   },
 
