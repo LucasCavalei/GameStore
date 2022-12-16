@@ -16,7 +16,7 @@ export const createUser = (userInfo) => (dispatch) => {
   axios
     .post('/user/signup', userInfo, {})
     .then((user) => {
-      dispatch(createUserSuccess(user));
+      dispatch(createUserSuccess(user.data));
     })
     .catch((error) => {
       dispatch({
@@ -34,7 +34,7 @@ export const loginUser = (userData) => (dispatch) => {
   axios
     .post('/user/login', userData)
     .then((user) => {
-      dispatch(loginUserSuccess(user));
+      dispatch(loginUserSuccess(user.data));
       //  previous used  localStorage.setItem('user', JSON.stringify(response.data));
       localStorage.setItem('user', JSON.stringify(user.data));
     })
@@ -57,13 +57,13 @@ export const loadUserRequest = () => {
 export const loginUserSuccess = (user) => {
   return {
     type: LOGIN_USER_SUCCESS,
-    payload: user.data,
+    payload: user,
   };
 };
 export const createUserSuccess = (user) => {
   return {
     type: CREATE_USER_SUCCESS,
-    payload: user.data,
+    payload: user,
   };
 };
 export const getUsersFailure = (error) => {

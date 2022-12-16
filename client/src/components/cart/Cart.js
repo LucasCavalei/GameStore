@@ -3,7 +3,6 @@ import { finalizarCompra } from '../../redux/actions/cartAction.js';
 import { useDispatch, connect } from 'react-redux';
 import { SET_CART_BUTTON } from '../../redux/actions/actionTypes';
 import './cart.css';
-import store from '../../redux/store.js';
 
 const Cart = ({
   cartItems,
@@ -26,11 +25,17 @@ const Cart = ({
     somaCart: somaCart,
     user: user,
   };
-
+  // this function can be called only once
+  // then executed function is false
   const handleFinalizarCompra = () => {
+    // var executed = false;
+    // if (!executed) {
+    // executed = true;
     dispatch(finalizarCompra(novaCompra));
     dispatch({ type: SET_CART_BUTTON });
+    // }
   };
+
   const buttonSwitch = (isLogged, cartButton) => {
     switch (true) {
       case !isLogged:
