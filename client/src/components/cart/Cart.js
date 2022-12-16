@@ -2,8 +2,8 @@ import React from 'react';
 import { finalizarCompra } from '../../redux/actions/cartAction.js';
 import { useDispatch, connect } from 'react-redux';
 import { SET_CART_BUTTON } from '../../redux/actions/actionTypes';
-
 import './cart.css';
+import store from '../../redux/store.js';
 
 const Cart = ({
   cartItems,
@@ -19,7 +19,8 @@ const Cart = ({
     (total, res) => total + res.qty * res.price,
     0
   );
-
+  {
+  }
   const novaCompra = {
     cartItem: cartItems,
     somaCart: somaCart,
@@ -64,7 +65,7 @@ const Cart = ({
         {' '}
         {user || !cartButton ? (
           <button
-            class="button button1"
+            className="button button1"
             onClick={() => handleFinalizarCompra()}
           >
             {buttonSwitch(isLogged, cartButton)}
@@ -92,7 +93,6 @@ export const CompraEncerrada = ({ compra, user }) => {
     </div>
   );
 };
-
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cartReducer.cartProducts,

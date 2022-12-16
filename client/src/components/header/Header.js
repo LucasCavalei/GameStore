@@ -11,7 +11,7 @@ function Header() {
       <div className="image-logo">
         <Link to="/">
           <img src={logo} style={{ height: '320px' }} />
-          <img class="logo-bg" />
+          <img className="logo-bg" />
         </Link>
       </div>
       <Sidenav />

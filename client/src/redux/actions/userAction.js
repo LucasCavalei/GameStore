@@ -11,14 +11,12 @@ import {
 import axios from 'axios';
 
 export const createUser = (userInfo) => (dispatch) => {
-  dispatch({ type: LOADING_USER });
+  // dispatch({ type: LOADING_USER });
+  dispatch(loadUserRequest());
   axios
     .post('/user/signup', userInfo, {})
-    .then((response) => {
-      dispatch({
-        type: CREATE_USER_SUCCESS,
-        payload: response.data,
-      });
+    .then((user) => {
+      dispatch(createUserSuccess(user));
     })
     .catch((error) => {
       dispatch({
@@ -35,12 +33,10 @@ export const loginUser = (userData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
     .post('/user/login', userData)
-    .then((response) => {
-      dispatch({
-        type: LOGIN_USER_SUCCESS,
-        payload: response.data,
-      });
-      localStorage.setItem('user', JSON.stringify(response.data));
+    .then((user) => {
+      dispatch(loginUserSuccess(user));
+      //  previous used  localStorage.setItem('user', JSON.stringify(response.data));
+      localStorage.setItem('user', JSON.stringify(user.data));
     })
     .catch((error) => {
       dispatch({
@@ -49,6 +45,30 @@ export const loginUser = (userData) => (dispatch) => {
       });
     });
 };
-export const LogOut = () => (dispatch) => {
+export const LogOutUser = () => (dispatch) => {
   dispatch({ type: LOG_OUT_USER });
+};
+
+export const loadUserRequest = () => {
+  return {
+    type: LOADING_USER,
+  };
+};
+export const loginUserSuccess = (user) => {
+  return {
+    type: LOGIN_USER_SUCCESS,
+    payload: user.data,
+  };
+};
+export const createUserSuccess = (user) => {
+  return {
+    type: CREATE_USER_SUCCESS,
+    payload: user.data,
+  };
+};
+export const getUsersFailure = (error) => {
+  return {
+    // type: GET_USERS_FAILURE,
+    payload: error,
+  };
 };

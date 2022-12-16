@@ -1,7 +1,7 @@
-import React from "react";
-import Produto from "./Produto";
-import { connect } from "react-redux";
-import "./produto.css";
+import React from 'react';
+import Produto from './Produto';
+import { connect } from 'react-redux';
+import './produto.css';
 
 function ListaProduto({ products }) {
   return (

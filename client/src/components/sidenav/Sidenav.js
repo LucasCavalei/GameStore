@@ -6,7 +6,7 @@ import { Tooltip } from '@mui/material';
 import { GrUserNew } from 'react-icons/gr';
 import { IoLogOut } from 'react-icons/io5';
 import { IoMdAppstore } from 'react-icons/io';
-import { LogOut } from '../../redux/actions/userAction';
+import { LogOutUser } from '../../redux/actions/userAction';
 import Cart from '../cart/Cart';
 import './sidenav.css';
 import {
@@ -22,7 +22,7 @@ const Sidenav = ({ showCart, isLogged, user }) => {
   };
 
   const handleLogOut = () => {
-    dispatch(LogOut()); // It cleans user data in userReducer
+    dispatch(LogOutUser()); // It cleans user data in userReducer
     dispatch({ type: CLEAN_PRODUCTS_ARRAY }); // It cleans cart products array
     showCartContainer(); // It hides the cart by click in handleLogOut
   };

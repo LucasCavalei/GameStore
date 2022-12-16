@@ -16,7 +16,12 @@ const initialState = {
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_USER_SUCCESS:
+      console.log(
+        '-------no reducer,case CREATE_USER_SUCCESS:',
+        action.payload
+      );
     case LOGIN_USER_SUCCESS:
+      console.log('-------no reducer,case LOGIN_USER_SUCCESS:', action.payload);
       return {
         ...state,
         user: action.payload,

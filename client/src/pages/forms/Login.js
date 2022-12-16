@@ -5,6 +5,7 @@ import Lottie from 'react-lottie';
 import { useForm } from 'react-hook-form';
 import { loginUser } from '../../redux/actions/userAction';
 import logSuccess from '../../assets/lotties/unlock.json';
+import PopupGoToStore from '../404/modal/Popup';
 import AlertForm from './alerts/AlertForm';
 import './form.css';
 
@@ -22,6 +23,11 @@ const Login = ({ user, isLogged, error }) => {
     rendererSettings: {
       preserveAspectRatio: 'xMidYMid slice',
     },
+  };
+
+  const [togglePopUpStore, setTogglePopUpStore] = useState(false);
+  const callPopupGoToStore = () => {
+    setTimeout(() => setTogglePopUpStore(true), 2000);
   };
 
   useEffect(() => {
@@ -54,6 +60,8 @@ const Login = ({ user, isLogged, error }) => {
           isPaused={logSuccessAnimation.isPaused}
         />
       ) : null}
+      {isLogged ? callPopupGoToStore() : null}
+      <PopupGoToStore toggle={togglePopUpStore} />
 
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         {!error ? null : <AlertForm error={error} />}
@@ -69,8 +77,8 @@ const Login = ({ user, isLogged, error }) => {
         <label> Email </label>
         <input type="text" {...register('email')} />
         <label> Senha </label>
-        <input type="text" {...register('password')} />
-        <button class="button button1" type="submit">
+        <input type="password" {...register('password')} />
+        <button className="button button1" type="submit">
           Enviar
         </button>
         <h5>

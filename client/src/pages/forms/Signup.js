@@ -5,10 +5,9 @@ import { useForm } from 'react-hook-form';
 import { createUser } from '../../redux/actions/userAction';
 import './form.css';
 import Lottie from 'react-lottie';
-import Popup from '../404/modal/Popup';
+import PopupGoToStore from '../404/modal/Popup';
 import PropTypes from 'prop-types';
 import logSuccess from '../../assets/lotties/unlock.json';
-import { faker } from '@faker-js/faker';
 
 const Signup = ({ isLogged, loading, user, error }) => {
   // const [showLottie, setShowLottie] = useState(false);
@@ -22,7 +21,6 @@ const Signup = ({ isLogged, loading, user, error }) => {
     isStopped: true,
     isPaused: false,
   });
-  const [toggle, setToggle] = useState(false);
 
   const loadingOptions = {
     loop: false,
@@ -40,10 +38,11 @@ const Signup = ({ isLogged, loading, user, error }) => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
-
   const dispatch = useDispatch();
-  const callPopup = () => {
-    setTimeout(() => setToggle(true), 2000);
+
+  const [togglePopUpStore, setTogglePopUpStore] = useState(false);
+  const callPopupGoToStore = () => {
+    setTimeout(() => setTogglePopUpStore(true), 2000);
   };
 
   useEffect(() => {
@@ -52,9 +51,9 @@ const Signup = ({ isLogged, loading, user, error }) => {
 
   const onSubmit = (e) => {
     const userData = {
-      name: faker.internet.userName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
+      name: e.name,
+      email: e.email,
+      password: e.password,
     };
     dispatch(createUser(userData));
   };
@@ -76,9 +75,9 @@ const Signup = ({ isLogged, loading, user, error }) => {
           isPaused={logSuccessAnimation.isPaused}
         />
       ) : null}
-      {isLogged ? callPopup() : null}
+      {isLogged ? callPopupGoToStore() : null}
 
-      <Popup toggle={toggle} />
+      <PopupGoToStore toggle={togglePopUpStore} />
       <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
         <h1>Cadastre-se Já!</h1>
         <label>Nome: </label>
@@ -87,7 +86,7 @@ const Signup = ({ isLogged, loading, user, error }) => {
         <input type="text" {...register('email')} />
         <label> Senha </label>
         <input type="password" {...register('password')} />
-        <button class="button button1" type="submit">
+        <button className="button button1" type="submit">
           Enviar
         </button>
         <h5>
@@ -110,7 +109,6 @@ Signup.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log('sou mapState', state.user);
   return {
     error: state.errorReducer.message,
     isLogged: state.userReducer.isLogged,

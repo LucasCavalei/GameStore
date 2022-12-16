@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 import './Popup.css';
 
-function Popup({ toggle }) {
+function PopupGoToStore({ toggle }) {
   return toggle ? (
     <div className="popup">
       <Link style={{ textDecoration: 'none', color: 'black' }} to="/">
@@ -20,4 +20,4 @@ function Popup({ toggle }) {
   );
 }
 
-export default Popup;
+export default PopupGoToStore;
