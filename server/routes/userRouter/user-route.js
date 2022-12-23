@@ -14,3 +14,4 @@ userRouter.post('/signup', expressAdapter(signup));
 userRouter.post('/login', expressAdapter(login));
 
 export default userRouter;
+

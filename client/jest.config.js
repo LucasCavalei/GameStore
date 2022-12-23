@@ -1,4 +1,9 @@
-export const collectCoverage = true;
-export const collectCoverageFrom = ['src/**/*.{js,jsx}'];
-export const coverageDirectory = 'coverage';
-export const testEnvironment = 'jsdom';
+module.exports = {
+  collectCoverage: true,
+  collectCoverageFrom: ['src/**/*.{js,jsx}'],
+  coverageDirectory: 'coverage',
+  testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  coveragePathIgnorePatterns: ['node_modules'],
+  testEnvironment: 'jsdom',
+};

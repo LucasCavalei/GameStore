@@ -28,12 +28,12 @@ const Cart = ({
   // this function can be called only once
   // then executed function is false
   const handleFinalizarCompra = () => {
-    // var executed = false;
-    // if (!executed) {
-    // executed = true;
-    dispatch(finalizarCompra(novaCompra));
-    dispatch({ type: SET_CART_BUTTON });
-    // }
+    var executed = false;
+    if (!executed) {
+      executed = true;
+      dispatch(finalizarCompra(novaCompra));
+      dispatch({ type: SET_CART_BUTTON });
+    }
   };
 
   const buttonSwitch = (isLogged, cartButton) => {
