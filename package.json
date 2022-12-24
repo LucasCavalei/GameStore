@@ -18,7 +18,8 @@
   },
   "scripts": {
     "start": "nodemon -r dotenv/config --exec babel-node server/server.js",
-    "test": "node  --experimental-vm-modules ./node_modules/jest/bin/jest --watchAll --config=jest.config.js"
+    "test": "node  --experimental-vm-modules ./node_modules/jest/bin/jest --watchAll --config=jest.config.js",
+    "client": "webpack-dev-server --mode development --devtool inline-source-map --hot"
   },
   "dependencies": {
     "axios": "^0.27.2",
