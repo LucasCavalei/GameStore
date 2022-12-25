@@ -5,7 +5,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const outputDirectory = 'dist';
 
 module.exports = {
-  entry: './client/src/index.js',
+  // entry: './client/src/index.js',
+  entry: path.resolve(__dirname, './client/src/index.js'),
   output: {
     path: path.join(__dirname, outputDirectory),
     filename: 'bundle.js',
@@ -14,7 +15,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: './client/src/index.html',
+      template: './client/public/index.html',
       // favicon: "./public/favicon.ico"
     }),
   ],
@@ -26,18 +27,18 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            preset: ['@babel/preset-env', '@babel/preset-react'],
+            preset: ['@babel/preset-env'],
           },
         },
       },
     ],
   },
-  devServer: {
-    port: 3000,
-    open: true,
-    historyApiFallback: true,
-    proxy: {
-      '/api': 'http://localhost:8888',
-    },
-  },
+  // devServer: {
+  //   port: 3000,
+  //   open: true,
+  //   historyApiFallback: true,
+  //   proxy: {
+  //     '/api': 'http://localhost:8888',
+  //   },
+  // },
 };
