@@ -65,13 +65,8 @@
     ]
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.0",
-    "@babel/core": "^7.10.0",
-    "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.20.2",
     "@faker-js/faker": "^7.5.0",
-    "babel-loader": "^9.1.0",
-    "babel-preset-react": "^6.24.1",
+    "babel-loader": "^7.0.0",
     "redux-devtools": "^3.7.0"
   },
   "proxy": "http://localhost:8888/"
