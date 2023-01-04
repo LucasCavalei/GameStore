@@ -8,7 +8,9 @@ import orderRouter from './routes/orderRoute/order-route.js';
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(express.static(path.join(__dirname, '../dist')));
+// app.use(express.static(path.join(__dirname, '../dist')));
+app.use(express.static('dist'));
+
 app.use('/user', userRouter);
 app.use('/order', orderRouter);
 app.use(morgan('tiny'));

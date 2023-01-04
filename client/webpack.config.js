@@ -1,5 +1,4 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -48,7 +47,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: ['css-loader'],
       },
     ],
   },
@@ -98,15 +97,6 @@ module.exports = {
     //   //não havia esse acima =============================  filename: './index.html',============
     //   // favicon: './public/favico n.ico',
     //   new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
-      minify: {
-        removeComments: true,
-        minifyJS: true,
-        minifyCSS: true,
-      },
-    }),
   ],
 };
 
