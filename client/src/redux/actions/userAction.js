@@ -40,6 +40,7 @@ import axios from 'axios';
 // };
 
 export const createUser = (userInfo) => (dispatch) => {
+  console.log('FUIIII CLICADOXXXXXXXXX', userInfo);
   dispatch(loadUserRequest());
   axios
     .post('/user/signup', userInfo, {})

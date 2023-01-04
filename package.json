@@ -18,8 +18,7 @@
   },
   "scripts": {
     "start": "nodemon  --exec babel-node server/server.js",
-    "test": "node  --experimental-vm-modules ./node_modules/jest/bin/jest --watchAll --config=jest.config.js",
-    "client": "webpack-dev-server --mode development --open --hot"
+    "test": "node  --experimental-vm-modules ./node_modules/jest/bin/jest --watchAll --config=jest.config.js"
   },
   "dependencies": {
     "ajv": "^8.11.2",

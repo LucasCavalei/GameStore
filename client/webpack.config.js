@@ -2,8 +2,9 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
-const outputDirectory = 'dist';
+const outputDirectory = '../dist';
 
+('inline-source-map');
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -62,12 +63,18 @@ module.exports = {
   //       },
   //     ],
   //   },
+  devtool: 'inline-source-map',
   devServer: {
     port: 3000,
+    hot: true,
     open: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8888',
+      '/api': {
+        target: 'http://localhost:3000',
+        router: () => 'http://localhost:8888',
+        logLevel: 'debug' /*optional*/,
+      },
     },
   },
 };

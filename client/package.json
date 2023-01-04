@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "webpack serve --progress --mode development --open --hot",
+    "start-server": "webpack serve --progress --mode development ",
     "build": "webpack --mode production"
   },
   "keywords": [],
@@ -66,5 +66,6 @@
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
-  }
+  },
+  "proxy": "http://localhost:8888/"
 }
