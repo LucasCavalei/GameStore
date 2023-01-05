@@ -52,10 +52,13 @@ export const createUser = (userInfo) => (dispatch) => {
       return user;
     })
     .catch((error) => {
+      console.log('-------------------------', error);
+      console.log('-------------------------', error.response);
+
       dispatch({
         type: CREATE_USER_ERROR,
         payload:
-          error.response && error.response.data.message
+          error.response && error.response.data
             ? error.response.data.message
             : error.message,
       });

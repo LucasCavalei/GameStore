@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-server": "webpack serve --progress --mode development ",
+    "start-server": "webpack serve  --progress --mode development ",
     "build": " npm run clean &&  webpack --mode production",
     "clean": "rm -rf ../dist"
   },
@@ -65,17 +65,21 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^6.7.3",
+    "dotenv-webpack": "^8.0.1",
     "file-loader": "^6.2.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.0",
     "raw-loader": "^4.0.2",
     "redux-devtools": "^3.7.0",
+    "rimraf": "^3.0.2",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "webpack-env-plugin": "^0.0.2",
+    "webpack-hot-middleware": "^2.25.3"
   },
   "proxy": "http://localhost:8888/"
 }

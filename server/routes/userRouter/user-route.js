@@ -12,6 +12,8 @@ const signup = new Signup();
 const login = new Login();
 userRouter.post('/signup', expressAdapter(signup));
 userRouter.post('/login', expressAdapter(login));
+userRouter.get('/login', (req, res) => {
+  res.json('voce esya no user rourte');
+});
 
 export default userRouter;
-
