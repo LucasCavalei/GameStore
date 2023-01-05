@@ -45,7 +45,7 @@ test('should return users list', async () => {
   expect(result).toEqual(responseMock);
   expect(true).toBe(true);
 });
-VER BABEL ES6 PRA VER SE RESOLVE MEU PROBLEMA OU APENAS ENTERDER PRA USA-LO
+// VER BABEL ES6 PRA VER SE RESOLVE MEU PROBLEMA OU APENAS ENTERDER PRA USA-LO
 
 // });
 // ---------------------------------------
