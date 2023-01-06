@@ -21,6 +21,8 @@ module.exports = {
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
     '\\.css$': 'jest-transform-css',
+    '\\.m?jsx?$': 'jest-esm-transformer',
+    '^.+\\.[t|j]sx?$': 'babel-jest',
   },
   globals: {},
 
