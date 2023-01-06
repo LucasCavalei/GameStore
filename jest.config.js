@@ -10,13 +10,15 @@ module.exports = {
     '!**/vendor/**',
     '!**/client/**',
   ],
+  testEnvironment: 'node',
   coverageDirectory: 'coverage',
-  testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
+  // testEnvironment: 'jsdom',
+  // setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
 
   // abaixo estou iginorando cleint por enquanto
   coveragePathIgnorePatterns: ['node_modules', 'client'],
-  testEnvironment: 'jsdom',
+  // testEnvironment: 'jsdom',
+  testEnvironment: 'node',
   testMatch: ['**/__tests__/**/*.spec.js?(x)'],
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
