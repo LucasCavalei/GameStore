@@ -1,12 +1,15 @@
 import request from 'supertest';
+// import MongoHelper from '../../../helpers/mongo-helper.js';
+import MongoHelper from '../../../helpers/mongo-helper.js';
+import { app } from '../../../app.js';
 import bcrypt from 'bcrypt';
-import MongoHelper from '../../helpers/mongo-helper.js';
-import { app } from '../../app.js';
+import dotenv from 'dotenv';
+dotenv.config();
 let userModel;
 
 describe('create a user THEN login this user', () => {
   beforeAll(async () => {
-    await MongoHelper.connect(process.env.MONGO_TEST_URL);
+    await MongoHelper.connect(process.env.MONGO_URL);
     userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {

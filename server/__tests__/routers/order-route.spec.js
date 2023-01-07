@@ -1,11 +1,14 @@
 import request from 'supertest';
-import MongoHelper from '../../helpers/mongo-helper';
-import { app } from '../../app.js';
+import MongoHelper from '../../../helpers/mongo-helper';
+import { app } from '../../../app.js';
+import dotenv from 'dotenv';
+dotenv.config();
+
 let userModel;
 
 describe('Should create order', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URL);
+    MongoHelper.connect(process.env.MONGO_URL);
     userModel = await MongoHelper.getCollection('user');
     await userModel.deleteMany();
   });
@@ -17,11 +20,15 @@ describe('Should create order', () => {
   });
 
   test('create a user before ir order to get token order method', async () => {
-    const response = await request(app).post('/user/signup').send({
-      name: 'supertest3',
-      email: 'supertest3@21mail.com',
-      password: 'hashed_password',
-    });
+    const response = await request(app)
+      // .post(`${SERVER_URL}/${'/user/signup'}`)
+      .post('/user/signup')
+
+      .send({
+        name: 'supertest3',
+        email: 'supertest3@21mail.com',
+        password: 'hashed_password',
+      });
     const { token } = response.body;
     const fakeOrder = {
       orderProducts: [1, 2, 3],
@@ -35,6 +42,7 @@ describe('Should create order', () => {
         'Content-Type': 'application/json',
       })
       .send(fakeOrder);
-    expect(response.status).toBe(200);
+
+    expect(orderResponse.status).toBe(200);
   });
 });

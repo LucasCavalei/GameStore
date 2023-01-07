@@ -15,7 +15,6 @@ class CreateUserRepository {
       email,
       password: hashedPassword,
     });
-    console.log('salvei ', savedUser);
     const userToken = await this.authorization.createToken(savedUser);
     const newUser = {
       token: userToken,

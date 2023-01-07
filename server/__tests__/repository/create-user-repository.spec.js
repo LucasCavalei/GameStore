@@ -18,9 +18,9 @@ describe('Connect  databse by mongoHelper then create a user', () => {
     await userModel.deleteMany();
   });
 
-  // afterAll(async () => {
-  //   await MongoHelper.disconnect();
-  // });
+  afterAll(async () => {
+    await MongoHelper.disconnect();
+  });
   test('should token be valid', async () => {
     const sut = makeSut();
     const user = await sut.createUser({

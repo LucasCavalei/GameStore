@@ -1,15 +1,14 @@
 import request from 'supertest';
 import MongoHelper from '../../helpers/mongo-helper';
+import { app } from '../../app.js';
 import bcrypt from 'bcrypt';
 import dotenv from 'dotenv';
 dotenv.config();
-
-import { app } from '../../app.js';
 let userModel;
 
 describe('Should create user by supertest in user-routes', () => {
   beforeAll(async () => {
-    MongoHelper.connect(process.env.MONGO_TEST_URL);
+    MongoHelper.connect(process.env.MONGO_URL);
     userModel = await MongoHelper.getCollection('user');
   });
   beforeEach(async () => {
