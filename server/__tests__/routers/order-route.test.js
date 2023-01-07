@@ -1,6 +1,6 @@
 import request from 'supertest';
-import MongoHelper from '../../../helpers/mongo-helper';
-import { app } from '../../../app.js';
+import MongoHelper from '../../helpers/mongo-helper.js';
+import { app } from '../../app.js';
 import dotenv from 'dotenv';
 dotenv.config();
 

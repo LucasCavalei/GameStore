@@ -19,7 +19,8 @@ module.exports = {
   coveragePathIgnorePatterns: ['node_modules', 'client'],
   // testEnvironment: 'jsdom',
   testEnvironment: 'node',
-  testMatch: ['**/__tests__/**/*.spec.js?(x)'],
+  // testMatch: ['**/__tests__/**/*.spec.js?(x)',
+  // "**/?(*.)+(spec|test).[tj]s?(x)"],
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
     '\\.css$': 'jest-transform-css',
