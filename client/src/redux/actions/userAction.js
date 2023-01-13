@@ -10,51 +10,17 @@ import {
 } from './actionTypes.js';
 import axios from 'axios';
 
-// export const createUser = async (userInfo) => (dispatch) => {
-//   // dispatch({ type: LOADING_USER });
-//   try{
-
-//   dispatch(loadUserRequest());
-//   const user = await axios
-//     .post('/user/signup', userInfo, {})
-
-//     dispatch(createUserSuccess(user.data));
-//   }catch (err) {
-//     console.error(err);
-//     // .then((user) => {
-//     //   // dispatch(createUserSuccess(user.data));
-//     //   console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', user);
-//     //   return user;
-//     // })
-//     // .catch((error) => {
-//     //   dispatch({
-//     //     type: CREATE_USER_ERROR,
-//     //     payload:
-//     //       error.response && error.response.data.message
-//     //         ? error.response.data.message
-//     //         : error.message,
-//     //   });
-
-//     // });
-//   }
-// };
-
 export const createUser = (userInfo) => (dispatch) => {
-  console.log('FUIIII CLICADOXXXXXXXXX', userInfo);
   dispatch(loadUserRequest());
   axios
-    .post('/user/signup', userInfo, {})
+    .post('http://localhost:8888/user/signup', userInfo, {})
 
     .then((user) => {
-      // dispatch(createUserSuccess(user.data));
-      console.log('hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh', user);
       dispatch(createUserSuccess(user.data));
       return user;
     })
     .catch((error) => {
-      console.log('-------------------------', error);
-      console.log('-------------------------', error.response);
-
+      console.log('--------ERROR-----------------', error);
       dispatch({
         type: CREATE_USER_ERROR,
         payload:

@@ -13,29 +13,14 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../dist')));
-// const jsonPlaceholderProxy = createProxyMiddleware({
-//   target: 'http://localhost:8888',
-//   //   changeOrigin: true, // for vhosted sites, changes host header to match to target's host
-//   logLevel: 'debug',
-//   pathRewrite: { '^/AffiliateCampaigns': '' },
-// });
-// app.use(
-//   '/',
-//   createProxyMiddleware({
-//     target: 'http://localhost:8888',
-//     changeOrigin: true,
-//     ws: true,
-//   })
+
 //  );
 // app.use(jsonPlaceholderProxy);
 // app.use(express.static('dist'));
 // app.use('/AffiliateCampaigns', jsonPlaceholderProxy);
 app.use(morgan('tiny'));
-app.use('/api/getUsername', (req, res) =>
-  res.send({ username: 'novoooooo api  cavaleiro okkkk' })
-);
 
 app.use('/user', userRouter);
 app.use('/order', orderRouter);
-app.use('/', (req, res) => res.send({ username: 'cavaleiro okkkk' }));
+app.use('/', (req, res) => res.json({ username: 'cavaleiro okkkk' }));
 export { app };
