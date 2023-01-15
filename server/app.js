@@ -11,9 +11,6 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../dist')));
 
-// app.use(jsonPlaceholderProxy);
-// app.use(express.static('dist'));
-// app.use('/AffiliateCampaigns', jsonPlaceholderProxy);
 app.use(morgan('tiny'));
 
 app.use('/user', userRouter);

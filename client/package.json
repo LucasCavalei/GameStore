@@ -80,6 +80,5 @@
     "webpack-dev-server": "^4.11.1",
     "webpack-env-plugin": "^0.0.2",
     "webpack-hot-middleware": "^2.25.3"
-  },
-  "proxy": "http://localhost:8888/"
+  }
 }
