@@ -1,5 +1,3 @@
-import { useHistory, Redirect } from 'react-router-dom';
-
 import {
   CREATE_USER_SUCCESS,
   CREATE_USER_ERROR,

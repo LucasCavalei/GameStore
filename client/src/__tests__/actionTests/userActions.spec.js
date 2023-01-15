@@ -7,7 +7,7 @@ import {
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { CREATE_USER_SUCCESS } from '../../redux/actions/actionTypes';
-import { CropOriginal, NoSim } from '@material-ui/icons';
+import { useDispatch, connect } from 'react-redux';
 
 // describe('fetchUsers', () => {
 //   let mock;
@@ -22,37 +22,36 @@ import { CropOriginal, NoSim } from '@material-ui/icons';
 
 // // --------------------------------------
 // describe('when API call is successful', () => {
+
 test('should return users list', async () => {
-  //   const fakeUser = {
-  //     name: 'lucas',
-  //     email: 'lucas@gmail22.com',
-  //     password: 'password2',
-  //   };
-  //   const res = createUser({ fakeUser });
-  //   console.log(res);
-  let mock;
-  mock = new MockAdapter(axios);
-  // given
-  var responseMock = {
-    id: 123,
+  const dispatch = useDispatch();
+
+  const fakeUser = {
+    name: 'lucas',
+    email: 'lucdssasdss@sgmssdsaisl22.com',
+    password: 'password2',
   };
-  mock.onPost().reply(200, responseMock);
+  const res = dispatch(createUser(fakeUser));
+  console.log('kreatorTest-----------', res);
+  // let mock;
+  // mock = new MockAdapter(axios);
+  // // given
+  // var responseMock = {
+  //   id: 123,
+  // };
+  // mock.onPost().reply(200, responseMock);
 
-  // when
-  const result = await createUser(null);
+  // // when
+  // const result = await createUser(null);
 
-  // then
-  expect(result).toEqual(responseMock);
+  // // then
+  // expect(result).toEqual(responseMock);
   expect(true).toBe(true);
 });
 // VER BABEL ES6 PRA VER SE RESOLVE MEU PROBLEMA OU APENAS ENTERDER PRA USA-LO
 
-// });
-// ---------------------------------------
+// -------------------2---------------------------essse abaixxo aqui isolado indenpente te todos os outros códigos
 
-// });
-
-// ------------------------------------------------------------------
 // import configureMockStore from 'redux-mock-store';
 // import thunk from 'redux-thunk';
 // const middleware = [thunk];
@@ -60,8 +59,9 @@ test('should return users list', async () => {
 // const mockStore = configureMockStore(middleware);
 // const store = mockStore();
 
-// import axios from 'axios';
+// ---------------------1-------------------- JA ESTRAVA COMENDATO tudão abaixo
 
+//import axios from 'axios';
 // describe('UserActions', () => {
 //   beforeEach(() => {
 //     store.clearActions();

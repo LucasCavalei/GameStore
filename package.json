@@ -18,8 +18,9 @@
   },
   "scripts": {
     "start": "nodemon  --exec babel-node server/server.js",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules ./node_modules/jest/bin/jest --watchAll --config=jest.config.js",
-    "test:integration": "cross-env NODE_OPTIONS=--experimental-vm-modules ./node_modules/jest/bin/jest --watch -c jest-integration-config.js"
+    "test": "cross-env jest --watchAll --config=jest.config.js",
+    "test:integration": "cross-env jest --watchAll -c jest-integration-config.js",
+    "test:client": "cross-env jest --watchAll ./client"
   },
   "dependencies": {
     "ajv": "^8.11.2",

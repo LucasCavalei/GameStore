@@ -5,7 +5,6 @@ dotenv.config();
 
 app.listen(8888, () => {
   console.log('8888 port connectado');
-  //  console.log(`Listening on ${port}`));
 });
 
 MongoHelper.connect(process.env.MONGO_URL, {
@@ -14,4 +13,4 @@ MongoHelper.connect(process.env.MONGO_URL, {
 })
   .then(console.log('connected database success'))
 
-  .catch((err) => console.log('falha ao conectar database', err));
+  .catch((err) => console.log('fail to connecta to database', err));
