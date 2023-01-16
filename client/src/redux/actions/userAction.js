@@ -4,12 +4,10 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_ERROR,
   LOG_OUT_USER,
-  LOADING_USER,
 } from './actionTypes.js';
 import axios from 'axios';
 
 export const createUser = (userInfo) => (dispatch) => {
-  dispatch(loadUserRequest());
   axios
     .post('http://localhost:8888/user/signup', userInfo, {})
 
@@ -49,11 +47,6 @@ export const LogOutUser = () => (dispatch) => {
   dispatch({ type: LOG_OUT_USER });
 };
 
-export const loadUserRequest = () => {
-  return {
-    type: LOADING_USER,
-  };
-};
 export const loginUserSuccess = (user) => {
   return {
     type: LOGIN_USER_SUCCESS,
@@ -64,11 +57,5 @@ export const createUserSuccess = (user) => {
   return {
     type: CREATE_USER_SUCCESS,
     payload: user,
-  };
-};
-export const getUsersFailure = (error) => {
-  return {
-    // type: GET_USERS_FAILURE,
-    payload: error,
   };
 };

@@ -3,7 +3,6 @@ import {
   CREATE_USER_ERROR,
   LOGIN_USER_SUCCESS,
   LOG_OUT_USER,
-  LOADING_USER,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -16,12 +15,9 @@ const initialState = {
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case CREATE_USER_SUCCESS:
-      console.log(
-        '-------no reducer,case CREATE_USER_SUCCESS:',
-        action.payload
-      );
+      action.payload;
     case LOGIN_USER_SUCCESS:
-      console.log('-------no reducer,case LOGIN_USER_SUCCESS:', action.payload);
+      action.payload;
       return {
         ...state,
         user: action.payload,
@@ -35,8 +31,6 @@ export const userReducer = (state = initialState, action) => {
         user: {},
         isLogged: false,
       };
-    case LOADING_USER:
-      return { ...state, loadingUser: true };
     default:
       return state;
   }

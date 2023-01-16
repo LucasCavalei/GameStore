@@ -44,8 +44,6 @@ const Cart = ({
         return 'Obrigado Pela preferencia';
       case isLogged:
         return 'Finalizar compra';
-      default:
-        return 'foo';
     }
   };
 
@@ -74,7 +72,6 @@ const Cart = ({
             onClick={() => handleFinalizarCompra()}
           >
             {buttonSwitch(isLogged, cartButton)}
-            {/* {isLogged ? 'Finalizar compra' : 'usuario precisa estar logado'} */}
           </button>
         ) : null}
       </>
@@ -87,8 +84,10 @@ export const CompraEncerrada = ({ compra, user }) => {
     <div>
       {user ? (
         <div className="cart-final">
-          <h3> {compra.message}</h3>&nbsp;&nbsp;<h3>Total {compra.somaCart}</h3>
-          <h5>Código da compra </h5>
+          <h3> {compra.message}</h3>&nbsp;&nbsp;
+          <h4 style={{ color: '#403a3a' }}>
+            Código da compra {compra.somaCart}
+          </h4>
           <h4>{compra}</h4>
           <h4>user</h4>
         </div>

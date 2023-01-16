@@ -17,7 +17,7 @@ export const finalizarCompra =
     };
 
     axios
-      .post('/order', orderData, {
+      .post('http://localhost:8888/order', orderData, {
         headers: {
           authorization: 'Bearer ' + user.token,
         },

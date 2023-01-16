@@ -69,8 +69,8 @@ const Signup = ({ isLogged, loading, user, error }) => {
             transform: 'translate(-50%, -50%)',
           }}
           options={logUnlock}
-          height={125}
-          width={125}
+          height={180}
+          width={180}
           isStopped={logSuccessAnimation.isStopped}
           isPaused={logSuccessAnimation.isPaused}
         />

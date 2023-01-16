@@ -15,8 +15,12 @@ Front end fez se o uso de Redux como state managment.
 - MongoDb
 - JWT Authentication
 - Jest matchers and supertest
+- Webpack
+- Babel
 - LottieFiles
 - ToolTip
+
+<img src="/client/src/assets/gif/AnimaçãoGameStore3.gif" alt="Alt Text">
 
 ### ℹ️ How to use
 
@@ -37,13 +41,13 @@ cd client
 
 npm test
 all tests are in foder server/** _tests_**
+
 It checks if routes are working with the proper user end purchaise payload
 using supertest and mathers
 
-
 ### 😉 Adicional information
 
-The backend was first created using mogoose library, after substituted to pure Mongodb.
+The backend was first created using mongoose library, after substituted to pure Mongodb.
 The main folder structure are Routes, controllers, respository includig express-Adapter as design Patter.
 The client side was implemented using Redux
 
